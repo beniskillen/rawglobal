@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>theraw. — Culture. Talent. Capital.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Permanent+Marker&family=Poppins:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+  :root{
+    --cream:#FAF8F2;
+    --ink:#0D0D0D;
+    --orange:#D9A63F;
+    --lime:#E9E5D8;
+    --purple:#8A6512;
+    --red:#8A6512;
+    --volt:#D9A63F;
+    --grey:#CBC6BC;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Space Grotesk',sans-serif;font-weight:500;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,.display{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+  .mono{font-family:'Space Grotesk',sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 48px}
+  @media(max-width:720px){.wrap{padding:0 20px}}
+
+  /* ---------- NAV ---------- */
+  nav{position:sticky;top:0;z-index:100;background:var(--ink);color:var(--cream);border-bottom:1px solid rgba(250,248,242,.12)}
+  nav .btn.solid{background:var(--cream);color:var(--ink)}
+  nav .btn.solid:hover{background:var(--orange);color:#fff}
+  .nav-links a:hover{color:#D9A63F}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo{font-weight:700;font-size:26px;letter-spacing:-.03em}
+  .lockup{display:inline-flex;align-items:center;gap:7px;font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:-.045em;font-size:26px;line-height:1}
+  .lockup .tm{font-size:7px;align-self:flex-start;margin-left:-4px;letter-spacing:0;font-weight:700}
+  .nav-links{display:flex;gap:36px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+  .nav-links a{position:relative;padding:4px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--ink);border-radius:100px;padding:12px 26px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.2s;background:transparent;font-family:'Space Grotesk',sans-serif}
+  .btn:hover{background:var(--ink);color:var(--cream)}
+  .btn.solid{background:var(--ink);color:var(--cream)}
+  .btn.solid:hover{background:var(--orange);border-color:var(--orange)}
+  .btn.orange{background:linear-gradient(90deg,var(--orange),var(--red));color:var(--ink);border:none}
+  .btn.volt{border:1.5px solid var(--volt);color:var(--volt);border-radius:4px}
+  .btn.volt:hover{background:var(--volt);color:var(--ink)}
+  @media(max-width:900px){.nav-links{display:none}}
+
+  /* ---------- SCROLL VIDEO INTRO ---------- */
+  .vid-journey{height:320vh;background:var(--ink)}
+  .vj-sticky{position:sticky;top:72px;height:calc(100vh - 72px);overflow:hidden}
+  .vj-sticky video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:opacity,transform}
+  .vj-hint{position:absolute;left:0;right:0;bottom:5vh;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:3;color:var(--cream)}
+  .vj-hint .scroll-word{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.6}
+  .vj-hint .scroll-line{display:block;width:1px;height:34px;background:var(--cream);opacity:.5;animation:hj-bounce 1.6s ease-in-out infinite}
+
+  /* ---------- HERO / GLOBE JOURNEY ---------- */
+  .hero{background:var(--ink);color:var(--cream);padding:48px 0 72px}
+  .hero h1{font-size:clamp(48px,8.6vw,155px);line-height:.96;word-spacing:.04em}
+  .hero-journey{height:680vh;background:var(--cream);color:var(--ink)}
+  .hj-sticky{position:sticky;top:72px;height:calc(100vh - 72px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+  .hj-sticky canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hj-hint{position:absolute;left:0;right:0;bottom:5vh;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:3}
+  .hj-hint .tagline{font-size:clamp(13px,1.1vw,16px);font-weight:600;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
+  .hj-hint .scroll-word{font-size:11px;letter-spacing:.35em;text-transform:uppercase;opacity:.55}
+  .hj-hint .scroll-line{display:block;width:1px;height:34px;background:var(--ink);opacity:.5;animation:hj-bounce 1.6s ease-in-out infinite}
+  @keyframes hj-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  .hj-caps{position:absolute;z-index:3;left:48px;bottom:9vh;max-width:min(600px,80vw);pointer-events:none}
+  @media(max-width:720px){.hj-caps{left:20px}}
+  .hj-cap{position:absolute;left:0;bottom:0;opacity:0;transform:translateY(24px)}
+  .hj-cap .cap-head{display:flex;align-items:baseline;gap:14px}
+  .hj-cap .cap-idx{font-size:clamp(12px,1vw,15px);font-weight:700;letter-spacing:.3em;color:var(--orange)}
+  .hj-cap .cap-city{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(44px,6.5vw,104px);line-height:.95;letter-spacing:.01em}
+  .hj-cap p{margin-top:14px;font-size:clamp(15px,1.3vw,20px);line-height:1.5;color:rgba(13,13,13,.75);max-width:44ch}
+  .hj-cap .cap-city{font-family:'Anton',sans-serif;text-transform:uppercase;display:inline-block}
+  .hj-headline{position:relative;z-index:2;padding:0 0 4vh;opacity:0;visibility:hidden;transform:translateY(60px)}
+  /* ---------- POSTER HERO ---------- */
+  .poster-stage{position:relative;height:min(76vh,740px);max-width:1200px;margin:0 auto}
+  .poster-stage image-slot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(46vw,420px);height:min(70vh,620px);filter:grayscale(1) contrast(1.05)}
+  .pw{position:absolute;line-height:.9;text-transform:uppercase;z-index:2;white-space:nowrap;font-family:'Anton',sans-serif;letter-spacing:.005em}
+  .pw.marker{font-family:'Anton',sans-serif}
+  .pw.blk{font-family:'Anton',sans-serif}
+  .pw-1{top:0;left:1%;font-size:clamp(56px,9.5vw,150px);color:var(--orange)}
+  .pw-2{top:28%;left:50%;transform:translateX(-50%);font-size:clamp(64px,11.5vw,180px);color:var(--orange)}
+  .pw-3{bottom:22%;right:1%;font-size:clamp(40px,6.5vw,100px);color:var(--orange)}
+  .pw-4{bottom:2%;left:50%;transform:translateX(-50%);font-size:clamp(38px,5.6vw,80px);color:var(--ink)}
+  .poster-sub{margin-top:10px;text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(12px,1.1vw,15px);letter-spacing:.24em;text-transform:uppercase;color:var(--orange)}
+  .squiggles{display:none}
+  @media(max-width:720px){.poster-stage{height:70vh}.poster-stage image-slot{width:72vw}}
+  .hj-headline h1{font-family:'Anton',sans-serif;font-size:clamp(34px,5.9vw,106px);line-height:.98;letter-spacing:.005em;word-spacing:.02em}
+  .yolk{white-space:nowrap;color:#D9A63F}
+  .intro{padding:72px 0 64px}
+  .hero-sub{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;justify-content:space-between}
+  .hero-sub p{max-width:440px;font-size:19px;line-height:1.5;color:#2A2925}
+  .path-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-width:420px;max-width:640px}
+  @media(max-width:820px){.path-cards{min-width:100%;grid-template-columns:1fr}}
+  .path-card{border:1.5px solid var(--ink);border-radius:18px;padding:26px 26px 22px;cursor:pointer;transition:.25s;position:relative;overflow:hidden;background:transparent}
+  .path-card small{display:block;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;color:var(--orange)}
+  .path-card .display{font-size:30px}
+  .path-card .arrow{position:absolute;top:22px;right:22px;font-size:22px;transition:.25s}
+  .path-card:hover{background:var(--ink);color:var(--cream)}
+  .path-card:hover .arrow{transform:translate(4px,-4px)}
+  .path-card.brand:hover small{color:var(--lime)}
+  .path-card.talent:hover small{color:#E9E5D8}
+
+  /* ---------- TICKER ---------- */
+  .ticker{background:var(--ink);color:var(--cream);overflow:hidden;padding:16px 0;border-top:1px solid var(--ink)}
+  .ticker-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 28s linear infinite;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:21px;letter-spacing:.06em}
+  .ticker-track span em{color:var(--orange);font-style:normal;margin-right:56px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- F1 ANNOUNCEMENT ---------- */
+  .f1{background:radial-gradient(120% 160% at 85% 10%,rgba(217,166,63,.38),transparent 55%),radial-gradient(90% 120% at 10% 100%,rgba(217,166,63,.22),transparent 50%),var(--ink);color:var(--cream);padding:96px 0;cursor:pointer;position:relative;overflow:hidden}
+  .f1-inner{display:flex;gap:70px;align-items:center;flex-wrap:wrap}
+  .f1-photo{position:relative;width:min(340px,80vw);height:420px;border-radius:12px;overflow:hidden;flex-shrink:0}
+  .f1-mark{font-family:'Anton',sans-serif;font-size:clamp(130px,17vw,270px);line-height:.82;color:transparent;-webkit-text-stroke:3px var(--red);flex-shrink:0;transition:.3s}
+  .f1:hover .f1-mark{color:var(--red)}
+  .f1-copy{flex:1;min-width:300px}
+  .f1-live{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(250,248,242,.35);border-radius:100px;padding:9px 18px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:26px}
+  .f1-live::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(217,166,63,.6)}50%{opacity:.6;box-shadow:0 0 0 8px rgba(217,166,63,0)}}
+  .f1-copy h2{font-size:clamp(42px,5.2vw,82px)}
+  .f1-copy h2 .accent{color:var(--red)}
+  .f1-copy p{max-width:560px;font-size:17px;line-height:1.55;color:var(--grey);margin:22px 0 32px}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:110px 0}
+  .kicker{display:block;color:#D9A63F;font-family:'Anton',sans-serif;font-size:26px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:18px;line-height:1}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(50px,6.8vw,104px)}
+  .sec-head p{max-width:400px;font-size:18px;line-height:1.5;color:#2A2925}
+
+  /* ---------- SERVICES ---------- */
+  .svc{border-top:1.5px solid var(--ink)}
+  .svc-item{border-bottom:1.5px solid var(--ink)}
+  .svc-row{display:grid;grid-template-columns:90px 1fr auto auto;align-items:center;gap:24px;padding:30px 0;cursor:pointer;transition:.2s}
+  .svc-row:hover{padding-left:14px}
+  .svc-num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--orange);font-size:15px}
+  .svc-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(34px,4.4vw,64px);line-height:1}
+  .svc-tags{display:flex;gap:8px}
+  .tag{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 13px;border-radius:100px}
+  .tag.b{background:var(--lime)}
+  .tag.t{background:var(--purple);color:#fff}
+
+  /* ---------- DARK BAND (breaks up the cream) ---------- */
+  .dark-band{background:var(--ink);color:var(--cream)}
+  .dark-band .sec-head p{color:var(--grey)}
+  .dark-band .ind-card{background:#141414;border-color:rgba(250,248,242,.25);color:var(--cream)}
+  .dark-band .ind-card p{color:var(--grey)}
+  .dark-band .ind-card .arrow{border-color:rgba(250,248,242,.5);color:var(--cream)}
+  .svc-toggle{width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:300;transition:.3s;flex-shrink:0}
+  .svc-item.open .svc-toggle{background:var(--ink);color:var(--cream);transform:rotate(45deg)}
+  .svc-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
+  .svc-item.open .svc-body{max-height:400px}
+  .svc-body-inner{display:grid;grid-template-columns:90px 1fr 1fr;gap:24px;padding:0 0 40px}
+  .svc-body-inner p{font-size:18px;line-height:1.55;color:#2A2925;max-width:480px}
+  .svc-body-inner ul{list-style:none;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;display:flex;flex-direction:column;gap:12px}
+  .svc-body-inner ul li::before{content:"→ ";color:var(--orange)}
+  @media(max-width:820px){
+    .svc-row{grid-template-columns:50px 1fr auto}
+    .svc-tags{display:none}
+    .svc-body-inner{grid-template-columns:1fr;padding-left:50px}
+  }
+
+  /* ---------- INDUSTRIES ---------- */
+  .ind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:900px){.ind-grid{grid-template-columns:1fr}}
+  .ind-card{border:1.5px solid var(--ink);border-radius:20px;padding:34px 32px 30px;cursor:pointer;transition:.25s;position:relative;overflow:hidden;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--cream)}
+  .ind-photo{position:relative;height:170px;margin-bottom:20px;border-radius:10px;overflow:hidden}
+  .ind-card::before{content:"";position:absolute;inset:0;opacity:0;transition:.3s;background:var(--ind-grad)}
+  .ind-card:hover::before{opacity:1}
+  .ind-card>*{position:relative}
+  .ind-card .mono{font-size:12px;font-weight:700;color:var(--orange);letter-spacing:.14em}
+  .ind-card h3{font-size:clamp(38px,4.4vw,60px);margin:12px 0 10px}
+  .ind-card p{font-size:16px;line-height:1.5;color:#2A2925;max-width:440px}
+  .ind-card .arrow{position:absolute;top:26px;right:26px;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.25s}
+  .ind-card:hover{color:#fff;border-color:transparent;transform:translateY(-3px)}
+  .ind-card:hover p{color:rgba(255,255,255,.88)}
+  .ind-card:hover .mono{color:#fff}
+  .ind-card:hover .arrow{border-color:#fff;color:#fff;transform:rotate(45deg)}
+
+  /* ---------- SHOWCASE OVERLAY ---------- */
+  .showcase{position:fixed;inset:0;z-index:200;background:var(--ink);color:var(--cream);overflow-y:auto;transform:translateY(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
+  .showcase.open{transform:translateY(0);visibility:visible}
+  .sc-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:22px 48px;background:linear-gradient(var(--ink) 60%,transparent);z-index:5}
+  .sc-close{width:52px;height:52px;border:1.5px solid var(--cream);border-radius:50%;background:transparent;color:var(--cream);font-size:20px;cursor:pointer;transition:.2s}
+  .sc-close:hover{background:var(--orange);border-color:var(--orange);transform:rotate(90deg)}
+  .sc-body{padding:30px 48px 90px;max-width:1440px;margin:0 auto}
+  @media(max-width:720px){.sc-top,.sc-body{padding-left:20px;padding-right:20px}}
+  .sc-body h2{font-size:clamp(58px,9.2vw,144px)}
+  .sc-body h2 .accent{color:var(--orange)}
+  .sc-lede{display:flex;gap:48px;flex-wrap:wrap;align-items:flex-start;margin:36px 0 60px}
+  .sc-lede p{max-width:560px;font-size:19px;line-height:1.55;color:var(--grey)}
+  .sc-chips{display:flex;gap:10px;flex-wrap:wrap;max-width:480px}
+  .sc-chips span{border:1px solid rgba(250,248,242,.4);border-radius:100px;padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .sc-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.sc-gallery{grid-template-columns:1fr}}
+  .sc-tile{border-radius:16px;min-height:420px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .sc-tile .mono{font-size:11px;font-weight:700;letter-spacing:.16em;opacity:.9}
+  .sc-tile .big{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(42px,4.6vw,66px);line-height:.95}
+  .sc-tile .cap{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:12px;opacity:.9}
+  .sc-stats{display:flex;gap:72px;flex-wrap:wrap;margin:70px 0;padding-top:44px;border-top:1px solid rgba(250,248,242,.25)}
+  .sc-nav{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;border-top:1px solid rgba(250,248,242,.25);padding-top:40px}
+  .sc-nav .btn{border-color:var(--cream);color:var(--cream)}
+  .sc-nav .btn:hover{background:var(--cream);color:var(--ink)}
+
+  /* ---------- GLOBAL ---------- */
+  .global{background:var(--ink);color:var(--cream)}
+  .global h2{font-size:clamp(52px,8vw,130px)}
+  .global h2 .accent{color:var(--orange)}
+  .global-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(250,248,242,.2);border:1px solid rgba(250,248,242,.2);margin-top:70px}
+  .g-cell{background:var(--ink);padding:34px 28px;transition:.25s;position:relative}
+  .g-cell:hover{background:#1a1a1a}
+  .g-cell .mono{font-size:11px;color:var(--grey);letter-spacing:.14em}
+  .g-cell h3{font-size:30px;margin-top:12px}
+  .g-cell.hot{background:linear-gradient(135deg,var(--orange),var(--red))}
+  .g-cell.hot .mono{color:rgba(255,255,255,.8)}
+  @media(max-width:1000px){.global-grid{grid-template-columns:repeat(2,1fr)}}
+  .global-stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px;border-top:1px solid rgba(242,239,233,.25)}
+  .global .g-stat{padding:48px 40px 8px;border-left:1px solid rgba(242,239,233,.25);position:relative}
+  .global .g-stat:first-child{border-left:none;padding-left:0}
+  .g-stat .display{font-size:clamp(76px,9vw,150px);line-height:.9}
+  .g-stat .display span{color:var(--orange)}
+  .g-stat p{font-size:14px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--cream);margin-top:14px}
+  .g-stat small{display:block;font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--grey);margin-top:8px;text-transform:none}
+  @media(max-width:900px){.global-stats{grid-template-columns:1fr}.global .g-stat{border-left:none;padding-left:0;border-top:1px solid rgba(242,239,233,.25);padding-top:32px}.global .g-stat:first-child{border-top:none}}
+
+  /* ---------- PROOF / CASE POSTERS ---------- */
+  .proof{background:var(--ink);color:var(--cream)}
+  .proof-head{text-align:center;max-width:820px;margin:0 auto 60px}
+  .proof-kicker{display:inline-flex;align-items:center;gap:16px;font-size:15px;font-weight:600;letter-spacing:.35em;text-transform:uppercase}
+  .proof-kicker::before{content:"";width:44px;height:3px;background:var(--volt)}
+  .proof-head p{color:var(--grey);font-size:18px;margin:18px 0 30px}
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:left}
+  @media(max-width:960px){.case-grid{grid-template-columns:1fr}}
+  .case-card{position:relative;min-height:580px;border-radius:6px;overflow:hidden;padding:26px 26px 22px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.25s}
+  .case-card>image-slot{position:absolute;inset:0;z-index:0;opacity:.5}
+  .case-card>div{position:relative;z-index:1;pointer-events:none}
+  .case-card>div a,.case-card>div button{pointer-events:auto}
+  .case-card:hover{transform:translateY(-4px)}
+  .case-top{display:flex;justify-content:space-between;align-items:flex-start}
+  .case-label{font-size:12px;font-weight:700;letter-spacing:.22em;color:var(--volt);text-transform:uppercase;display:flex;align-items:center;gap:12px}
+  .case-label::after{content:"";width:28px;height:10px;background:var(--volt)}
+  .case-words{margin-top:16px;font-size:11px;font-weight:600;letter-spacing:.28em;line-height:2.1;text-transform:uppercase;color:var(--cream)}
+  .case-plus{display:flex;flex-direction:column;gap:14px;color:var(--volt);font-size:15px;line-height:1}
+  .case-num{font-family:'Anton',sans-serif;font-size:clamp(92px,7.8vw,145px);line-height:.9;color:var(--volt);text-transform:uppercase}
+  .case-cap{font-size:15px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;margin-top:12px}
+  .case-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:28px;padding-top:16px;border-top:1px solid rgba(250,248,242,.18);font-size:11px;letter-spacing:.14em;color:rgba(250,248,242,.85)}
+  .case-bar{width:60px;height:9px;background:rgba(250,248,242,.18);flex-shrink:0}
+  .case-bar i{display:block;height:100%;width:45%;background:var(--volt)}
+  .case-globe{width:20px;height:20px;flex-shrink:0;color:var(--cream)}
+  #work .step{background:#151515;border:1px solid rgba(250,248,242,.14)}
+
+  /* ---------- STORY ---------- */
+  .story-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:60px}
+  @media(max-width:900px){.story-steps{grid-template-columns:1fr}}
+  .step{background:var(--ink);color:var(--cream);border-radius:14px;padding:34px 30px}
+  .step .num{font-family:'Anton',sans-serif;font-style:italic;color:var(--orange);font-size:36px}
+  .step small{display:block;color:var(--orange);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin:16px 0 10px}
+  .step h3{font-size:30px;margin-bottom:16px}
+  .step p{font-size:16px;line-height:1.55;color:var(--grey)}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--cream)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+  .contact h2{font-size:clamp(56px,7.2vw,108px)}
+  .contact-left p{margin:28px 0;font-size:18px;line-height:1.55;max-width:400px;color:#2A2925}
+  .audience-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:100px;overflow:hidden;margin-bottom:36px}
+  .audience-toggle button{border:none;background:transparent;padding:13px 30px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:.2s}
+  .audience-toggle button.active{background:var(--ink);color:var(--cream)}
+  .field{margin-bottom:26px}
+  .field label{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+  .field input,.field select,.field textarea{width:100%;border:none;border-bottom:1.5px solid var(--ink);background:transparent;padding:10px 2px;font-size:16px;font-family:'Space Grotesk',sans-serif;outline:none}
+  .field textarea{resize:vertical;min-height:80px}
+  footer{background:var(--ink);color:var(--grey);padding:40px 0;font-size:13px}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#" class="lockup">theraw<span class="tm">™</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="javascript:openShowcase('igaming')" style="color:var(--volt)">iGaming</a>
+      <a href="#industries">Industries</a>
+      <a href="#global">Global</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Talent</a>
+      <a href="#contact">Brands</a>
+    </div>
+    <a href="#contact" class="btn solid">Let's Talk ↗</a>
+  </div>
+</nav>
+
+<header class="hero-journey" id="heroJourney">
+  <div class="hj-sticky">
+    <canvas id="globeCanvas"></canvas>
+    <div class="hj-hint" id="hjHint">
+      <span class="tagline">On the ground. Everywhere online.</span>
+      <span class="scroll-word">Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+    <div class="hj-caps">
+      <div class="hj-cap" id="hjCap0">
+        <div class="cap-head"><span class="cap-idx">01</span><span class="cap-city">New Zealand</span></div>
+        <p>Home turf. Where The RAW started — and where campaigns still launch first.</p>
+      </div>
+      <div class="hj-cap" id="hjCap1">
+        <div class="cap-head"><span class="cap-idx">02</span><span class="cap-city">Australia</span></div>
+        <p>Festival country. Where we’ve built festivals from zero — brand, campaign, tickets on sale.</p>
+      </div>
+      <div class="hj-cap" id="hjCap2">
+        <div class="cap-head"><span class="cap-idx">03</span><span class="cap-city">Indonesia</span></div>
+        <p>APAC creator networks with real pull — campaigns that speak the local language.</p>
+      </div>
+      <div class="hj-cap" id="hjCap3">
+        <div class="cap-head"><span class="cap-idx">04</span><span class="cap-city">UAE</span></div>
+        <p>F1 Abu Dhabi. One yacht, 120 vetted guests, the season finale.</p>
+      </div>
+      <div class="hj-cap" id="hjCap4">
+        <div class="cap-head"><span class="cap-idx">05</span><span class="cap-city">USA</span></div>
+        <p>1B+ streams of reach — athletes, streamers, and IRL moments live everywhere.</p>
+      </div>
+      <div class="hj-cap" id="hjCap5">
+        <div class="cap-head"><span class="cap-idx">06</span><span class="cap-city">LATAM</span></div>
+        <p>Mexico City and beyond — creator-led campaigns with compliance handled.</p>
+      </div>
+    </div>
+    <div class="wrap hj-headline" id="hjHeadline">
+      <div class="poster-stage">
+        <svg class="squiggles" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20,120 C180,60 260,220 420,150 S760,40 880,140 S1150,90 1230,160" fill="none" stroke="#D9A63F" stroke-width="2.5" opacity=".8"/>
+          <path d="M-20,560 C220,640 420,480 640,570 S980,660 1230,540" fill="none" stroke="#D9A63F" stroke-width="2.5" opacity=".8"/>
+        </svg>
+        <image-slot id="hero-portrait" shape="rect" placeholder="Drop a portrait photo"></image-slot>
+        <span class="pw marker pw-1">Make</span>
+        <span class="pw blk pw-2">Culture</span>
+        <span class="pw marker pw-3">Accessible</span>
+        <span class="pw pw-4">The Raw.</span>
+      </div>
+      <div class="poster-sub">build ideas people feel &mdash; turn raw attention into real world impact</div>
+    </div>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="roughedge"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter></svg>
+  </div>
+</header>
+
+<div class="intro">
+  <div class="wrap">
+    <div class="hero-sub">
+      <p><strong>The RAW is the heat marketing needs before it cooks.</strong> We plug brands into the talent, culture, and moments that actually convert — and put talent in the rooms where the real deals get done.</p>
+      <div class="path-cards">
+        <a href="#contact" class="path-card brand" onclick="setAudience('brand')">
+          <small>For Brands</small>
+          <div class="display">Get inside the culture. Own the moment.</div>
+          <span class="arrow">↗</span>
+        </a>
+        <a href="#contact" class="path-card talent" onclick="setAudience('talent')">
+          <small>For Talent</small>
+          <div class="display">Your audience is an asset. Cash it in.</div>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-track" id="ticker">
+    <span>New Zealand <em>·</em> Australia <em>·</em> UAE <em>·</em> Indonesia <em>·</em> USA <em>·</em> LATAM <em>·</em> 18+ Streams <em>·</em></span>
+    <span>New Zealand <em>·</em> Australia <em>·</em> UAE <em>·</em> Indonesia <em>·</em> USA <em>·</em> LATAM <em>·</em> 18+ Streams <em>·</em></span>
+  </div>
+</div>
+
+<section class="f1" id="f1" onclick="openShowcase('f1')" style="padding:96px 0">
+  <div class="wrap f1-inner">
+    <div class="f1-mark">F1</div>
+    <div class="f1-copy">
+      <span class="f1-live">F1 Abu Dhabi · Yas Marina · Dec 3–6, 2026</span>
+      <h2>One yacht. One weekend.<br><span class="accent">The season finale.</span></h2>
+      <p>A private superyacht experience at the heart of the Abu Dhabi Grand Prix — 120 vetted guests, invitation and referral only. Celebrities, athletes, founders, and a capped slate of brand partnerships. The berth is locked. The room can't be bought anywhere else that weekend.</p>
+      <span class="btn" style="border-color:var(--cream);color:var(--cream)">Enquire about access ↗</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">What we do</div>
+        <h2>End-to-end.<br>Both sides.</h2>
+      </div>
+      <p>From strategy to execution — every service works two ways: it puts brands inside culture, and it puts talent in the rooms where deals happen.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-item open">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">01</span>
+          <span class="svc-title">Sponsorships &amp; Endorsements</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>We broker the deals that matter — matching brands with the athletes, artists, and creators whose audiences actually convert. We have direct access to professional athletes at the highest level of their sport, and we put that reach to work for brands. Structured, measured, and built to renew.</p>
+          <ul><li>Elite professional athletes on call</li><li>Deal sourcing &amp; negotiation</li><li>Performance measurement</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">02</span>
+          <span class="svc-title">Talent Collaboration</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>Co-created campaigns where talent isn't a billboard — they're a partner. We shape collaborations people feel, from concept through content to launch, with influencer marketing that actually moves numbers.</p>
+          <ul><li>Influencer marketing at scale</li><li>Campaign co-creation</li><li>Content production</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">03</span>
+          <span class="svc-title">iGaming</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>iGaming traffic — the fastest-moving vertical in the game, and we speak the language. Creator-led iGaming campaigns with the right talent across multiple markets — APAC, LATAM, and beyond — with compliance handled.</p>
+          <ul><li>Traffic &amp; acquisition campaigns</li><li>APAC · LATAM · global markets</li><li>Compliance handled</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">04</span>
+          <span class="svc-title">Festival Work</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>We don't just show up at festivals — we build them. We've taken a festival from nothing: built the brand, launched the campaign, and ran it all the way to tickets on sale. Influencer marketing, activations, PR, billboards — the lot.</p>
+          <ul><li>Festival brand creation &amp; launch</li><li>Ticket sales &amp; influencer marketing</li><li>PR, billboards &amp; on-site activations</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">05</span>
+          <span class="svc-title">Bespoke Marketing</span>
+          <span class="svc-tags"><span class="tag b">Brands</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>No template. Full-stack marketing built around your brief — strategy, creative, and execution. And if you just need the essentials done properly — websites, campaigns, collateral, social media design — we do that too, start to finish.</p>
+          <ul><li>Websites, campaigns &amp; collateral design</li><li>Social media design &amp; content</li><li>Strategy through to execution</li></ul>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="dark-band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Industries</div>
+        <h2>Where<br>we cooked.</h2>
+      </div>
+      <p>Every industry has its own culture. Click through to see the campaigns, the services behind them, and what they delivered.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#8A6512,#D9A63F)" onclick="openShowcase('festivals')">
+        <span class="arrow">↗</span>
+        <span class="mono">001 / FESTIVAL CAMPAIGNS</span>
+        <h3>Festival Campaigns</h3>
+        <p>We built a festival from zero — brand, campaign, tickets on sale — plus 25+ international activations where culture gathers.</p>
+      </div>
+      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#1a1a1a,#D9A63F)" onclick="openShowcase('fashion')">
+        <span class="arrow">↗</span>
+        <span class="mono">002 / FASHION &amp; MERCH CAMPAIGNS</span>
+        <h3>Fashion &amp; Merch</h3>
+        <p>Creator collabs that move product and drops that sell out — from concept to checkout, worn worldwide.</p>
+      </div>
+      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#8E8778,#D9A63F)" onclick="openShowcase('hospitality')">
+        <span class="arrow">↗</span>
+        <span class="mono">003 / HOSPITALITY CAMPAIGNS</span>
+        <h3>Hospitality Campaigns</h3>
+        <p>Restaurant launches and dining moments the whole city talks about.</p>
+      </div>
+      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#8E8778,#8A6512)" onclick="openShowcase('products')">
+        <span class="arrow">↗</span>
+        <span class="mono">004 / PRODUCT CAMPAIGNS</span>
+        <h3>Product Campaigns</h3>
+        <p>Launches that turn shelf items into cultural objects — like honey that stings.</p>
+      </div>
+      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#2E2B26,#E9E5D8)" onclick="openShowcase('sports')">
+        <span class="arrow">↗</span>
+        <span class="mono">005 / SPORTS &amp; STREAMING ACTIVATIONS</span>
+        <h3>Sports &amp; Streaming</h3>
+        <p>Athlete endorsements and IRL streaming moments — live, unscripted, everywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="showcase" id="showcase">
+  <div class="sc-top">
+    <span class="lockup" style="color:var(--cream)">theraw<span class="tm">™</span></span>
+    <button class="sc-close" onclick="closeShowcase()">✕</button>
+  </div>
+  <div class="sc-body" id="sc-body"></div>
+</div>
+
+<section class="global" id="global" style="padding-top:110px">
+  <div class="wrap">
+    <div class="kicker">Global Reach</div>
+    <h2>On the ground.<br><span class="accent">Everywhere online.</span></h2>
+    <div class="global-grid">
+      <div class="g-cell"><span class="mono">41.3° S, 174.8° E</span><h3>New Zealand</h3></div>
+      <div class="g-cell"><span class="mono">25.3° S, 133.8° E</span><h3>Australia</h3></div>
+      <div class="g-cell"><span class="mono">24.0° N, 54.0° E</span><h3>UAE</h3></div>
+      <div class="g-cell"><span class="mono">6.2° S, 106.8° E</span><h3>Indonesia</h3></div>
+      <div class="g-cell"><span class="mono">39.8° N, 98.6° W</span><h3>USA</h3></div>
+      <div class="g-cell"><span class="mono">19.4° N, 99.1° W</span><h3>LATAM</h3></div>
+      <div class="g-cell"><span class="mono">1B+ streams</span><h3>Everywhere Online</h3></div>
+      <div class="g-cell hot"><span class="mono">All platforms</span><h3>18+ Streams</h3></div>
+    </div>
+    <div class="global-stats" id="global-stats">
+      <div class="g-stat"><div class="display"><span class="cnt" data-end="1000000000" data-compact="1">0</span><span>+</span></div><p>Streams</p><small>Across every platform and partner network.</small></div>
+      <div class="g-stat"><div class="display"><span class="cnt" data-end="6">0</span><span>+</span></div><p>Markets</p><small>Live campaigns from Auckland to Mexico City.</small></div>
+      <div class="g-stat"><div class="display"><span class="cnt" data-end="4">0</span></div><p>Continents</p><small>Boots on the ground, not just ads in the feed.</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="proof">
+  <div class="wrap">
+    <div class="proof-head">
+      <div class="proof-kicker">Proven success with The RAW</div>
+      <p>Three proof points. One system built to turn cultural attention into commercial power.</p>
+      <a class="btn volt" href="#industries">View case studies ↗</a>
+    </div>
+    <div class="case-grid">
+      <div class="case-card" onclick="openShowcase('festivals')" style="background:
+        radial-gradient(90% 60% at 75% 30%,rgba(217,166,63,.14),transparent 60%),
+        radial-gradient(120% 80% at 20% 80%,rgba(217,166,63,.28),transparent 55%),
+        linear-gradient(160deg,#1c1a14,#0D0D0D 70%)">
+        <div>
+          <div class="case-top">
+            <div><div class="case-label">Case Study 01</div><div class="case-words">Culture<br>Experience<br>Impact</div></div>
+            <div class="case-plus">+<span>+</span><span>+</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="case-num">25+</div>
+          <div class="case-cap">Major Festival Activations</div>
+          <div class="case-foot">
+            <span>01</span><span class="case-bar"><i></i></span>
+            <span>34.0522° N, 118.2437° W</span>
+            <svg class="case-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M3.5 6.5h17M3.5 17.5h17"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="case-card" onclick="openShowcase('products')" style="background:
+        radial-gradient(70% 55% at 70% 55%,rgba(217,166,63,.30),transparent 65%),
+        linear-gradient(160deg,#131308,#0D0D0D 75%)">
+        <div>
+          <div class="case-top">
+            <div><div class="case-label">Case Study 02</div><div class="case-words">Brand<br>Partnerships<br>Growth</div></div>
+            <div class="case-plus">+<span>+</span><span>+</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="case-num">100+</div>
+          <div class="case-cap">Brands Worked With</div>
+          <div class="case-foot">
+            <span>02</span><span class="case-bar"><i style="width:60%"></i></span>
+            <span>40.7128° N, 74.0060° W</span>
+            <svg class="case-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M3.5 6.5h17M3.5 17.5h17"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="case-card" onclick="openShowcase('sports')" style="background:
+        radial-gradient(100% 70% at 80% 20%,rgba(142,135,120,.45),transparent 60%),
+        radial-gradient(80% 60% at 20% 90%,rgba(217,166,63,.10),transparent 55%),
+        linear-gradient(160deg,#10131c,#0D0D0D 75%)">
+        <div>
+          <div class="case-top">
+            <div><div class="case-label">Case Study 03</div><div class="case-words">Creator<br>Community<br>Reach</div></div>
+            <div class="case-plus">+<span>+</span><span>+</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="case-num">1,000+</div>
+          <div class="case-cap">Influencers Activated</div>
+          <div class="case-foot">
+            <span>03</span><span class="case-bar"><i style="width:75%"></i></span>
+            <span>51.5074° N, 0.1278° W</span>
+            <svg class="case-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M3.5 6.5h17M3.5 17.5h17"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-steps">
+      <div class="step">
+        <div class="num">01</div>
+        <small>The Challenge</small>
+        <h3>Stop being background noise.</h3>
+        <p>Brand X needed more than visibility. They needed to enter the cultural conversation in a way people actually felt.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <small>The Access</small>
+        <h3>Get in the right rooms.</h3>
+        <p>We connected the brand with the right talent, culture, and moment — turning attention into a campaign people wanted to talk about.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <small>The Outcome</small>
+        <h3>Attention became capital.</h3>
+        <p>The campaign converted culture into measurable growth, stronger reach, and real commercial impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" style="border-top:1.5px solid var(--ink)">
+  <div class="wrap contact-grid">
+    <div class="contact-left">
+      <div class="kicker">Let's Talk</div>
+      <h2>Ready to<br>disrupt?</h2>
+      <p>Whether you're a brand chasing culture or talent chasing the right rooms — send us a message and let's make it happen.</p>
+      <a class="btn" href="mailto:benny@therawculture.io">benny@therawculture.io</a>
+    </div>
+    <div>
+      <div class="audience-toggle">
+        <button id="tb-brand" class="active" onclick="setAudience('brand')">I'm a Brand</button>
+        <button id="tb-talent" onclick="setAudience('talent')">I'm Talent</button>
+      </div>
+      <form onsubmit="event.preventDefault();alert('Mockup only — form not wired up.')">
+        <div class="field"><label>Name</label><input placeholder="Your name"></div>
+        <div class="field"><label>Email</label><input id="f-email" placeholder="you@brand.com"></div>
+        <div class="field" id="f-svc-wrap"><label>Services of interest</label>
+          <select id="f-svc">
+            <option>Sponsorships &amp; Endorsements</option>
+            <option>Talent Collaboration</option>
+            <option>iGaming</option>
+            <option>Festival Work</option>
+            <option>Bespoke Marketing</option>
+          </select>
+        </div>
+        <div class="field" id="f-budget"><label>Budget range</label>
+          <select><option>Not sure on a budget</option><option>$10k–50k</option><option>$50k–250k</option><option>$250k+</option></select>
+        </div>
+        <div class="field" id="f-links" style="display:none"><label>Socials / portfolio</label><input placeholder="@handle or link"></div>
+        <div class="field"><label>Message</label><textarea id="f-msg" placeholder="Tell us what you're building"></textarea></div>
+        <button class="btn orange" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span class="lockup" style="color:var(--cream)">theraw<span class="tm">™</span></span>
+    <span>Make culture accessible · Build ideas people feel · Turn raw attention into real world impact</span>
+    <span class="mono">© 2026 The RAW</span>
+  </div>
+</footer>
+
+<script>
+  function toggleSvc(row){
+    const item=row.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.svc-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  }
+  const industries={
+    f1:{
+      num:'000',title:'F1 Abu Dhabi<br><span class="accent">Yacht Experience.</span>',
+      lede:"Yas Marina, December 3–6, 2026 — the final race of the season. The RAW is hosting a private superyacht experience at the heart of race weekend: 120 guests, invitation and referral only. Every paying guest is vetted, and the ticket price is the filter — founders, family offices, athletes, and entertainers from the UAE, US, and Europe under one roof. For brands, a capped slate of partnerships puts your product inside the room: integrated placement (environment, not banners), influencer and celebrity proximity, professional content capture across the weekend, and a post-event asset library built to repurpose. Proven at Monaco. Perfected for Abu Dhabi.",
+      services:['Brand Partnerships — capped','VIP Access — vetted & referral only','Content Engine','Master-Suite Hosting'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#0D0D0D,#8A6512)',ink:'#fff',tag:'THE ROOM',big:'120 guests. Vetted.',cap:'Invitation &amp; referral only — no walk-ups, no dilution'},
+        {grad:'linear-gradient(160deg,#8A6512,#D9A63F)',ink:'#fff',tag:'FOR BRANDS',big:'Placement, not banners',cap:'Lifestyle-first product integration + influencer content moments'},
+        {grad:'linear-gradient(160deg,#1a1a1a,#3a3a3a)',ink:'#FAF8F2',tag:'THE ASSET',big:'Content engine',cap:'Pro capture all weekend + a post-event library for your channels'}
+      ],
+      stats:[['Dec 3–6','Yas Marina, Abu Dhabi'],['120','Guests — deliberately capped'],['Limited','Brand partnerships']],
+      next:'festivals',nextLabel:'Festival Campaigns'
+    },
+    igaming:{
+      num:'★',title:'iGaming.<br><span class="accent">Traffic that converts.</span>',
+      lede:"The fastest-moving vertical in the game — and we speak the language. The RAW runs creator-led iGaming campaigns built for one thing: traffic that turns into players. The right talent fronting the offer, audiences that actually convert, and reach across multiple markets — APAC, LATAM, and beyond — with compliance handled market by market.",
+      services:['Creator-led campaigns','Traffic & acquisition','APAC · LATAM · Global','Compliance handled'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#0D0D0D,#1a1a1a)',ink:'#D9A63F',tag:'TRAFFIC',big:'Clicks that deposit',cap:'Acquisition-first creator campaigns'},
+        {grad:'linear-gradient(160deg,#D9A63F,#E9E5D8)',ink:'#0D0D0D',tag:'TALENT',big:'Faces they trust',cap:'Streamers &amp; creators with real pull'},
+        {grad:'linear-gradient(160deg,#1a1a1a,#8A6512)',ink:'#fff',tag:'MARKETS',big:'APAC → LATAM',cap:'Multi-market reach, compliance handled'}
+      ],
+      stats:[['1B+','Streams of reach'],['6+','Markets live'],['100%','Compliance handled']],
+      next:'sports',nextLabel:'Sports & Streaming'
+    },
+    festivals:{
+      num:'001',title:'Festival<br><span class="accent">Campaigns.</span>',
+      lede:"We don't just activate festivals — we build them. We've taken a festival from nothing: built the brand, launched the campaign, and ran influencer marketing, PR, billboards, and activations all the way to tickets on sale. Then we worked hand-in-hand with the promoters — handing over the full asset kit so they could keep running it without support.",
+      services:['Festival Work','Sponsorships','Talent Collaboration'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#8A6512,#D9A63F)',ink:'#fff',tag:'BUILT BY RAW',big:'Built from zero',cap:'Brand → campaign → tickets on sale'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#8A6512)',ink:'#fff',tag:'CONTENT',big:'Chaos &amp; culture',cap:'On-site photo, video &amp; aftermovies — a content bank built to repurpose'},
+        {grad:'linear-gradient(160deg,#8A6512,#8E8778)',ink:'#0D0D0D',tag:'ON-SITE',big:'Festival access',cap:'Main-stage takeovers &amp; festival sponsorships — brand exposure where culture gathers'}
+      ],
+      stats:[['25+','Major international festival activations']],
+      next:'fashion',nextLabel:'Fashion & Merch'
+    },
+    fashion:{
+      num:'002',title:'Fashion &amp;<br><span class="accent">Merch.</span>',
+      lede:"Streetwear doesn't buy ads — it buys belief. We pair labels and artists with the creators, crews, and cities that give a drop its story — then run the sell-out sequence end-to-end: concept, drop strategy, store, and the retarget loop. Worn worldwide, sold out fast.",
+      services:['Talent Collaboration','Bespoke Marketing'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#1a1a1a,#D9A63F)',ink:'#fff',tag:'COLLAB',big:'Worn worldwide',cap:'Global creator seeding program'},
+        {grad:'linear-gradient(160deg,#8A6512,#E9E5D8)',ink:'#0D0D0D',tag:'DROP CULTURE',big:'Sell-out sequence',cap:'Scarcity, timing, and the tease'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#8A6512)',ink:'#fff',tag:'ARTIST LINES',big:'Fan to customer',cap:'Creator merch from concept to checkout'}
+      ],
+      stats:[['6+','Markets activated'],['24h','Fastest sell-out'],['100%','End-to-end delivery']],
+      next:'hospitality',nextLabel:'Hospitality Campaigns'
+    },
+    hospitality:{
+      num:'003',title:'Hospitality<br><span class="accent">Campaigns.</span>',
+      lede:"A restaurant doesn't go viral by accident. We engineer openings, creator dining moments, and the content loop that keeps a venue booked out — turning tables into talkability.",
+      services:['Talent Collaboration','Bespoke Marketing','Sponsorships'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#8E8778,#D9A63F)',ink:'#0D0D0D',tag:'LAUNCH',big:'Opening nights',cap:'Launches the whole city talks about'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#8E8778)',ink:'#FAF8F2',tag:'CREATORS',big:'Taste makers',cap:'Creator dining moments built for the feed'},
+        {grad:'linear-gradient(160deg,#D9A63F,#8A6512)',ink:'#fff',tag:'RESULT',big:'Booked out',cap:'From opening buzz to repeat covers'}
+      ],
+      stats:[['Wk 1','Booked-out openings'],['1M+','Local reach per launch'],['↗','Tables into talkability']],
+      next:'products',nextLabel:'Product Campaigns'
+    },
+    products:{
+      num:'004',title:'Product<br><span class="accent">Campaigns.</span>',
+      lede:"We take products off the shelf and into the conversation. The playbook: a provocative creative idea, the right creators to carry it, and out-of-home moments people photograph and repost.",
+      services:['Talent Collaboration','Sponsorships','Bespoke Marketing'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#8E8778,#8A6512)',ink:'#0D0D0D',tag:'CAMPAIGN',big:'Honey that stings',cap:'Sting Honey — OOH + creator launch'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#3a3a3a)',ink:'#FAF8F2',tag:'PRODUCT DROP',big:'Sweet by nature',cap:'Limited drop with 40+ creators'},
+        {grad:'linear-gradient(160deg,#D9A63F,#8A6512)',ink:'#fff',tag:'AMPLIFICATION',big:'This might sting',cap:'12M organic impressions in week one'}
+      ],
+      stats:[['40+','Creators activated'],['12M','Organic impressions'],['3x','Sales lift at launch']],
+      next:'sports',nextLabel:'Sports & Streaming'
+    },
+    sports:{
+      num:'005',title:'Sports &amp;<br><span class="accent">Streaming.</span>',
+      lede:"Athletes are the most trusted voices in culture — and IRL streaming is where they live now. Think Speed on the ground: live, unscripted, everywhere at once. We structure the endorsements and build the streaming moments that convert.",
+      services:['Sponsorships & Endorsements','Talent Collaboration','iGaming'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#2E2B26,#E9E5D8)',ink:'#0D0D0D',tag:'ENDORSEMENT',big:'Built to move',cap:'Footwear launch with pro athletes'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#2E2B26)',ink:'#FAF8F2',tag:'IRL STREAMING',big:'Live &amp; unscripted',cap:'On-the-ground streams, everywhere online'},
+        {grad:'linear-gradient(160deg,#E9E5D8,#D9A63F)',ink:'#0D0D0D',tag:'COMMUNITY',big:'Street energy',cap:'Run clubs + grassroots activations'}
+      ],
+      stats:[['100+','Brands worked with'],['1,000+','Influencers activated'],['18+','Stream platforms live']],
+      next:'festivals',nextLabel:'Festival Campaigns'
+    }
+  };
+  function openShowcase(key){
+    const d=industries[key];
+    document.getElementById('sc-body').innerHTML=`
+      <div class="kicker">Industry ${d.num}</div>
+      <h2>${d.title}</h2>
+      <div class="sc-lede">
+        <p>${d.lede}</p>
+        <div class="sc-chips">${d.services.map(s=>`<span>${s}</span>`).join('')}</div>
+      </div>
+      <div class="sc-gallery">${d.tiles.map((t,i)=>`
+        <div class="sc-tile" style="background:${t.img?`linear-gradient(180deg,rgba(13,13,13,.2),rgba(13,13,13,.72)),url('${t.img}') center/cover`:t.grad};color:${t.img?'#fff':t.ink}">
+          <span class="mono">${d.num}.${i+1} — ${t.tag}</span>
+          <div><div class="big">${t.big}</div><div class="cap">${t.cap}</div></div>
+        </div>`).join('')}
+      </div>
+      <div class="sc-stats">${d.stats.map(s=>`
+        <div class="g-stat"><div class="display" style="font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(60px,7.5vw,116px)">${s[0]}</div><p style="font-size:14px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);margin-top:12px">${s[1]}</p></div>`).join('')}
+      </div>
+      <div class="sc-nav">
+        <a class="btn" href="#contact" onclick="closeShowcase()">Start a project like this ↗</a>
+        <a class="btn" href="javascript:openShowcase('${d.next}')">Next: ${d.nextLabel} →</a>
+      </div>`;
+    const sc=document.getElementById('showcase');
+    sc.classList.add('open');sc.scrollTop=0;
+    document.body.style.overflow='hidden';
+  }
+  function closeShowcase(){
+    document.getElementById('showcase').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeShowcase()});
+  // Animated count-up for global stats
+  const fmt=(v,compact)=>compact?new Intl.NumberFormat('en',{notation:'compact',maximumFractionDigits:1}).format(v):Math.round(v).toString();
+  const statsObs=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting)return;
+      statsObs.unobserve(en.target);
+      en.target.querySelectorAll('.cnt').forEach(el=>{
+        const end=+el.dataset.end,compact=!!el.dataset.compact,t0=performance.now(),dur=1600;
+        const tick=t=>{
+          const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+          el.textContent=fmt(end*e,compact);
+          if(p<1)requestAnimationFrame(tick);else el.textContent=fmt(end,compact);
+        };
+        requestAnimationFrame(tick);
+      });
+    });
+  },{threshold:.4});
+  const gs=document.getElementById('global-stats');if(gs)statsObs.observe(gs);
+  function setAudience(a){
+    document.getElementById('tb-brand').classList.toggle('active',a==='brand');
+    document.getElementById('tb-talent').classList.toggle('active',a==='talent');
+    const brand=a==='brand';
+    document.getElementById('f-budget').style.display=brand?'block':'none';
+    document.getElementById('f-links').style.display=brand?'none':'block';
+    document.getElementById('f-email').placeholder=brand?'you@brand.com':'you@email.com';
+    document.getElementById('f-msg').placeholder=brand?"Tell us what you're building":"Tell us who you are and where you want to go";
+    const svc=document.getElementById('f-svc');
+    svc.innerHTML=brand
+      ?'<option>Sponsorships &amp; Endorsements</option><option>Talent Collaboration</option><option>iGaming</option><option>Festival Work</option><option>Bespoke Marketing</option>'
+      :'<option>Brand deals &amp; endorsements</option><option>Campaign collaborations</option><option>Festival &amp; event bookings</option><option>Representation / management</option>';
+  }
+</script>
+<script>
+(function(){
+  // ---------- Globe journey (hero) ----------
+  const canvas=document.getElementById('globeCanvas');
+  const rootEl=document.getElementById('heroJourney');
+  if(!canvas||!rootEl)return;
+  const hintEl=document.getElementById('hjHint');
+  const headEl=document.getElementById('hjHeadline');
+  const capEls=[0,1,2,3,4,5].map(i=>document.getElementById('hjCap'+i));
+  const CREAM='#141414',RED='#D9A63F'; // ink dots on cream (poster theme)
+
+  // Stops: on-the-ground markets (lon,lat)
+  const stops=[
+    {lon:174.8,lat:-41.3},  // New Zealand
+    {lon:133.8,lat:-25.3},  // Australia
+    {lon:106.8,lat:-6.2},   // Indonesia
+    {lon:54.4,lat:24.5},    // UAE
+    {lon:-98.6,lat:39.8},   // USA
+    {lon:-99.1,lat:19.4}    // LATAM (Mexico City)
+  ];
+  // Camera keyframes: rotY=-lon faces the stop; monotonic = seamless westward flight
+  const cam=[
+    {p:0.00,rotY:-215,tilt:-30,zoom:0.95},
+    {p:0.08,rotY:-174.8,tilt:-41.3,zoom:1.28},{p:0.155,rotY:-174.8,tilt:-41.3,zoom:1.32},
+    {p:0.22,rotY:-133.8,tilt:-25.3,zoom:1.28},{p:0.295,rotY:-133.8,tilt:-25.3,zoom:1.32},
+    {p:0.36,rotY:-106.8,tilt:-6.2,zoom:1.28},{p:0.435,rotY:-106.8,tilt:-6.2,zoom:1.32},
+    {p:0.50,rotY:-54.4,tilt:24.5,zoom:1.28},{p:0.575,rotY:-54.4,tilt:24.5,zoom:1.32},
+    {p:0.64,rotY:98.6,tilt:39.8,zoom:1.28},{p:0.715,rotY:98.6,tilt:39.8,zoom:1.32},
+    {p:0.78,rotY:99.1,tilt:19.4,zoom:1.28},{p:0.845,rotY:99.1,tilt:19.4,zoom:1.30},
+    {p:1.00,rotY:150,tilt:-12,zoom:0.58}
+  ];
+  const capWin=[
+    [0.070,0.095,0.150,0.195],
+    [0.210,0.235,0.290,0.335],
+    [0.350,0.375,0.430,0.475],
+    [0.490,0.515,0.570,0.615],
+    [0.630,0.655,0.710,0.755],
+    [0.770,0.795,0.845,0.885]
+  ];
+
+  // ---------- stylized continent dot field ----------
+  const polys=[
+    [[-168,66],[-150,62],[-130,56],[-125,48],[-122,38],[-117,32],[-105,22],[-97,26],[-90,29],[-81,25],[-80,32],[-75,36],[-70,43],[-60,47],[-55,52],[-65,60],[-80,64],[-95,70],[-120,70],[-140,70],[-168,66]],
+    [[-105,22],[-97,26],[-90,29],[-83,10],[-79,8],[-92,14],[-105,22]],
+    [[-79,9],[-72,11],[-60,9],[-50,3],[-44,-3],[-35,-8],[-39,-15],[-40,-23],[-48,-28],[-57,-38],[-65,-47],[-71,-54],[-73,-44],[-73,-33],[-70,-18],[-77,-6],[-79,9]],
+    [[-52,61],[-42,62],[-25,70],[-20,76],[-30,83],[-55,83],[-68,78],[-60,68],[-52,61]],
+    [[-9,37],[-2,43],[3,43],[10,44],[16,41],[23,38],[28,41],[40,44],[50,50],[60,55],[60,68],[45,68],[30,71],[20,70],[10,63],[5,58],[-2,50],[-9,44],[-9,37]],
+    [[-17,14],[-10,25],[-5,32],[3,37],[10,37],[20,32],[32,31],[35,27],[43,12],[51,12],[48,2],[40,-11],[36,-19],[32,-29],[24,-34],[18,-33],[14,-22],[9,-1],[-8,5],[-17,14]],
+    [[40,44],[52,42],[60,40],[70,38],[75,35],[68,24],[72,20],[78,8],[80,15],[88,22],[92,20],[98,10],[103,2],[105,12],[109,18],[115,23],[122,30],[122,38],[130,42],[136,45],[142,50],[150,60],[160,62],[170,66],[178,68],[178,72],[140,76],[110,78],[80,74],[68,70],[60,68],[60,55],[50,50],[40,44]],
+    [[95,5],[103,1],[110,-2],[118,-4],[125,-2],[132,-4],[140,-6],[147,-8],[142,-10],[130,-8],[118,-9],[108,-7],[100,-2],[95,5]],
+    [[130,32],[134,34],[138,36],[141,40],[143,44],[140,42],[136,36],[131,33],[130,32]],
+    [[114,-22],[122,-14],[131,-12],[137,-12],[142,-11],[147,-19],[151,-24],[153,-30],[150,-36],[144,-38],[136,-35],[129,-32],[122,-34],[115,-34],[113,-26],[114,-22]],
+    [[172,-35],[176,-38],[174,-42],[169,-46],[167,-45],[171,-40],[172,-35]],
+    [[-10,52],[-6,55],[-4,58],[-1,55],[0,52],[-4,50],[-10,52]]
+  ];
+  const inPoly=(lon,lat,poly)=>{let inside=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];if(((yi>lat)!==(yj>lat))&&(lon<(xj-xi)*(lat-yi)/(yj-yi)+xi))inside=!inside;}return inside;};
+  const isLand=(lon,lat)=>polys.some(p=>inPoly(lon,lat,p));
+  const landDots=[];
+  {const N=9000,GA=Math.PI*(3-Math.sqrt(5));
+   for(let i=0;i<N;i++){const y=1-(2*i+1)/N;const lat=Math.asin(y)*180/Math.PI;let lon=((i*GA*180/Math.PI)%360);if(lon>180)lon-=360;
+     if(isLand(lon,lat))landDots.push({lat:lat*Math.PI/180,lon:lon*Math.PI/180});}}
+
+  const smooth=v=>v*v*(3-2*v);
+  const clamp01=v=>Math.min(1,Math.max(0,v));
+  const easeOut=v=>1-Math.pow(1-v,3);
+  function camera(p){
+    let a=cam[0],b=cam[cam.length-1];
+    for(let i=0;i<cam.length-1;i++){if(p>=cam[i].p&&p<=cam[i+1].p){a=cam[i];b=cam[i+1];break;}}
+    const t=smooth(clamp01((p-a.p)/Math.max(1e-6,b.p-a.p)));
+    const L=(x,y)=>x+(y-x)*t;
+    return{rotY:L(a.rotY,b.rotY)*Math.PI/180,tilt:L(a.tilt,b.tilt)*Math.PI/180,zoom:L(a.zoom,b.zoom)};
+  }
+  const t0=performance.now();
+  function frame(){
+    const vh=window.innerHeight;
+    const rect=rootEl.getBoundingClientRect();
+    const p=clamp01(-rect.top/Math.max(1,rect.height-vh));
+    if(hintEl)hintEl.style.opacity=String(clamp01(1-p*14));
+    const capAlphas=[];
+    for(let i=0;i<capWin.length;i++){
+      const[s,f1,f2,e]=capWin[i];let a=0;
+      if(p>s&&p<e){a=p<f1?(p-s)/(f1-s):p>f2?1-(p-f2)/(e-f2):1;}
+      a=clamp01(a);capAlphas.push(a);
+      const el=capEls[i];
+      if(el){el.style.opacity=String(a);el.style.transform='translateY('+((1-easeOut(a))*24).toFixed(1)+'px)';}
+    }
+    const hp=easeOut(clamp01((p-0.87)/0.12));
+    if(headEl){headEl.style.opacity=String(hp);headEl.style.visibility=hp>0.01?'visible':'hidden';headEl.style.transform='translateY('+((1-hp)*60).toFixed(1)+'px)';}
+    draw(p,capAlphas);
+    requestAnimationFrame(frame);
+  }
+  function draw(p,capAlphas){
+    const dpr=Math.min(2,window.devicePixelRatio||1);
+    const w=canvas.clientWidth,h=canvas.clientHeight;
+    if(!w||!h)return;
+    if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
+    const ctx=canvas.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,w,h);
+    const c=camera(p);
+    const recede=clamp01((p-0.84)/0.14);
+    const t=(performance.now()-t0)/1000;
+    const idle=clamp01(1-p*12)*t*0.06;
+    const rotY=c.rotY+idle,tilt=c.tilt;
+    const cx=w/2,cy=h*0.52,R=Math.min(w,h)*0.40*c.zoom;
+    const GA2=1-0.86*recede;
+    const sinT=Math.sin(tilt),cosT=Math.cos(tilt);
+    const project=(lat,lon)=>{const cl=Math.cos(lat);const x=cl*Math.sin(lon+rotY);const y=Math.sin(lat);const z=cl*Math.cos(lon+rotY);const y2=y*cosT-z*sinT;const z2=y*sinT+z*cosT;return{x:cx+x*R,y:cy-y2*R,z:z2};};
+    ctx.globalAlpha=GA2*0.4;ctx.strokeStyle=CREAM;ctx.lineWidth=1;
+    ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();
+    const drawArc=pts=>{ctx.beginPath();let st=false;for(const pt of pts){if(pt.z<=0.02){st=false;continue;}if(!st){ctx.moveTo(pt.x,pt.y);st=true;}else ctx.lineTo(pt.x,pt.y);}ctx.stroke();};
+    ctx.globalAlpha=GA2*0.08;
+    for(let m=0;m<6;m++){const lon=(m/6)*Math.PI;const a1=[],a2=[];for(let a=-Math.PI/2;a<=Math.PI/2+0.001;a+=Math.PI/48){a1.push(project(a,lon));a2.push(project(a,lon+Math.PI));}drawArc(a1);drawArc(a2);}
+    for(let q=-2;q<=2;q++){const lat=q*Math.PI/6;const pts=[];for(let a=0;a<=Math.PI*2+0.001;a+=Math.PI/48)pts.push(project(lat,a));ctx.globalAlpha=GA2*(q===0?0.15:0.08);drawArc(pts);}
+    ctx.fillStyle=CREAM;
+    for(const d of landDots){const pt=project(d.lat,d.lon);if(pt.z<=0.02)continue;ctx.globalAlpha=GA2*(0.2+0.6*pt.z);const r=(0.9+1.15*pt.z)*Math.max(0.8,R/420);ctx.beginPath();ctx.arc(pt.x,pt.y,r,0,Math.PI*2);ctx.fill();}
+    for(let i=0;i<stops.length;i++){
+      const s=stops[i];const pt=project(s.lat*Math.PI/180,s.lon*Math.PI/180);
+      if(pt.z<=0.05)continue;
+      const a=capAlphas[i];
+      ctx.globalAlpha=GA2*(0.25+0.5*pt.z)*0.9;ctx.fillStyle=RED;
+      ctx.beginPath();ctx.arc(pt.x,pt.y,3,0,Math.PI*2);ctx.fill();
+      if(a>0.01){const pulse=1+0.18*Math.sin(t*3.2);
+        ctx.strokeStyle=RED;ctx.lineWidth=1.5;
+        ctx.globalAlpha=GA2*a*0.9;ctx.beginPath();ctx.arc(pt.x,pt.y,12*pulse,0,Math.PI*2);ctx.stroke();
+        ctx.globalAlpha=GA2*a*0.5;ctx.beginPath();ctx.arc(pt.x,pt.y,22*pulse,0,Math.PI*2);ctx.stroke();}
+    }
+    ctx.globalAlpha=1;
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
