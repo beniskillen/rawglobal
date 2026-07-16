@@ -6,7 +6,7 @@
 <title>theraw. — Culture. Talent. Capital.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wdth,wght@0,100,500;0,100,600;0,125,900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wdth,wght@0,100,500;0,100,600;0,125,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="image-slot.js"></script>
 <style>
   :root{
@@ -22,6 +22,11 @@
     --font-heading:'Archivo',sans-serif;
     --font-campaign:'Archivo',sans-serif;
     --font-poster:'Anton',sans-serif;
+    /* aliases used by the interaction-layer (raw-*) components */
+    --raw-cream:var(--cream);
+    --raw-black:var(--ink);
+    --raw-orange:var(--orange);
+    --raw-font-body:var(--font-body);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -35,8 +40,6 @@
 
   /* ---------- NAV ---------- */
   nav{position:sticky;top:0;z-index:100;background:var(--ink);color:var(--cream);border-bottom:1px solid rgba(250,248,242,.12)}
-  nav .btn.solid{background:var(--cream);color:var(--ink)}
-  nav .btn.solid:hover{background:var(--orange);color:#fff}
   .nav-links a:hover{color:#D9A63F}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
   .logo{font-weight:700;font-size:26px;letter-spacing:-.03em}
@@ -44,14 +47,82 @@
   .lockup .tm{font-size:7px;align-self:flex-start;margin-left:-4px;letter-spacing:0;font-weight:600;font-stretch:100%}
   .nav-links{display:flex;gap:36px;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase}
   .nav-links a{position:relative;padding:4px 0}
-  .btn{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--ink);border-radius:100px;padding:12px 26px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.2s;background:transparent;font-family:var(--font-body)}
-  .btn:hover{background:var(--ink);color:var(--cream)}
-  .btn.solid{background:var(--ink);color:var(--cream)}
-  .btn.solid:hover{background:var(--orange);border-color:var(--orange)}
-  .btn.orange{background:linear-gradient(90deg,var(--orange),var(--red));color:var(--ink);border:none}
-  .btn.volt{border:1.5px solid var(--volt);color:var(--volt);border-radius:4px}
-  .btn.volt:hover{background:var(--volt);color:var(--ink)}
+  /* ---------- BUTTONS (raw-btn) ---------- */
+  .raw-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    border:none;
+    border-radius:999px;
+    padding:0.85rem 1.4rem;
+    font-family:var(--raw-font-body);
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:0.02em;
+    line-height:1;
+    cursor:pointer;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+  .raw-btn:hover{transform:translateY(-1px)}
+  /* on dark sections */
+  .raw-btn-primary{background:var(--raw-cream);color:var(--raw-black)}
+  .raw-btn-primary:hover{background:var(--raw-orange);color:var(--raw-black)}
+  .raw-btn-secondary{background:transparent;color:var(--raw-cream);border:1px solid rgba(255,255,255,0.35)}
+  .raw-btn-secondary:hover{background:var(--raw-cream);color:var(--raw-black);border-color:var(--raw-cream)}
+  /* on light sections */
+  .raw-btn-ink{background:var(--raw-black);color:var(--raw-cream)}
+  .raw-btn-ink:hover{background:var(--raw-orange);color:var(--raw-black)}
+  .raw-btn-ghost-ink{background:transparent;color:var(--raw-black);border:1px solid rgba(13,13,13,0.35)}
+  .raw-btn-ghost-ink:hover{background:var(--raw-black);color:var(--raw-cream);border-color:var(--raw-black)}
   @media(max-width:900px){.nav-links{display:none}}
+
+  /* ---------- MOTION (raw-reveal) ---------- */
+  .raw-reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:
+      opacity 500ms ease,
+      transform 500ms cubic-bezier(.25,.46,.45,.94);
+  }
+  .raw-reveal.is-visible{opacity:1;transform:translateY(0)}
+  .raw-card-media img,
+  .raw-card-media video,
+  .raw-card-media image-slot{
+    transition:transform 350ms cubic-bezier(.25,.46,.45,.94);
+  }
+  .raw-card:hover .raw-card-media img,
+  .raw-card:hover .raw-card-media video,
+  .raw-card:hover .raw-card-media image-slot{
+    transform:scale(1.035);
+  }
+
+  /* ---------- HORIZONTAL BROWSE ROW ---------- */
+  .browse-row{
+    display:flex;gap:18px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    margin:0 -48px;padding:4px 48px 8px;
+  }
+  .browse-row::-webkit-scrollbar{display:none}
+  .browse-row>*{flex:0 0 min(400px,78vw);scroll-snap-align:start}
+  @media(max-width:720px){.browse-row{margin:0 -20px;padding-left:20px;padding-right:20px}}
+  .browse-ctl{display:flex;gap:10px;align-self:flex-end}
+  .browse-ctl button{
+    width:44px;height:44px;border-radius:50%;
+    border:1px solid rgba(255,255,255,0.35);
+    background:transparent;color:var(--cream);
+    font-size:17px;cursor:pointer;
+    transition:background-color 180ms ease,color 180ms ease,opacity 180ms ease;
+  }
+  .browse-ctl button:hover{background:var(--cream);color:var(--ink)}
+  .browse-ctl button:disabled{opacity:.3;pointer-events:none}
 
   /* ---------- SCROLL VIDEO INTRO ---------- */
   .vid-journey{height:320vh;background:var(--ink)}
@@ -64,7 +135,7 @@
   /* ---------- HERO / GLOBE JOURNEY ---------- */
   .hero{background:var(--ink);color:var(--cream);padding:48px 0 72px}
   .hero h1{font-size:clamp(48px,8.6vw,155px);line-height:.96;word-spacing:.04em}
-  .hero-journey{height:680vh;background:var(--cream);color:var(--ink)}
+  .hero-journey{height:520vh;background:var(--cream);color:var(--ink)}
   .hj-sticky{position:sticky;top:72px;height:calc(100vh - 72px);overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
   .hj-sticky canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
   .hj-hint{position:absolute;left:0;right:0;bottom:5vh;display:flex;flex-direction:column;align-items:center;gap:12px;z-index:3}
@@ -101,14 +172,12 @@
   .hero-sub p{max-width:440px;font-size:18px;line-height:1.5;color:#2A2925}
   .path-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;min-width:420px;max-width:640px}
   @media(max-width:820px){.path-cards{min-width:100%;grid-template-columns:1fr}}
-  .path-card{border:1.5px solid var(--ink);border-radius:18px;padding:26px 26px 22px;cursor:pointer;transition:.25s;position:relative;overflow:hidden;background:transparent}
+  .path-card{border:1px solid rgba(13,13,13,.25);border-radius:12px;padding:26px 26px 22px;cursor:pointer;transition:border-color 180ms ease,transform 180ms ease;position:relative;overflow:hidden;background:transparent}
   .path-card small{display:block;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;margin-bottom:10px;color:var(--orange)}
-  .path-card .display{font-size:30px}
-  .path-card .arrow{position:absolute;top:22px;right:22px;font-size:22px;transition:.25s}
-  .path-card:hover{background:var(--ink);color:var(--cream)}
+  .path-card .display{font-size:26px}
+  .path-card .arrow{position:absolute;top:22px;right:22px;font-size:22px;transition:transform 180ms ease}
+  .path-card:hover{border-color:var(--ink);transform:translateY(-2px)}
   .path-card:hover .arrow{transform:translate(4px,-4px)}
-  .path-card.brand:hover small{color:var(--lime)}
-  .path-card.talent:hover small{color:#E9E5D8}
 
   /* ---------- TICKER ---------- */
   .ticker{background:var(--ink);color:var(--cream);overflow:hidden;padding:16px 0;border-top:1px solid var(--ink)}
@@ -116,19 +185,18 @@
   .ticker-track span em{color:var(--orange);font-style:normal;margin-right:56px}
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* ---------- F1 ANNOUNCEMENT ---------- */
-  .f1{background:radial-gradient(120% 160% at 85% 10%,rgba(217,166,63,.38),transparent 55%),radial-gradient(90% 120% at 10% 100%,rgba(217,166,63,.22),transparent 50%),var(--ink);color:var(--cream);padding:96px 0;cursor:pointer;position:relative;overflow:hidden}
-  .f1-inner{display:flex;gap:70px;align-items:center;flex-wrap:wrap}
-  .f1-photo{position:relative;width:min(340px,80vw);height:420px;border-radius:12px;overflow:hidden;flex-shrink:0}
-  .f1-mark{font-family:var(--font-poster);font-size:clamp(130px,17vw,270px);line-height:.82;color:transparent;-webkit-text-stroke:3px var(--red);flex-shrink:0;transition:.3s}
-  .f1:hover .f1-mark{color:var(--red)}
-  .f1-copy{flex:1;min-width:300px}
+  /* ---------- F1 CAMPAIGN (full-bleed) ---------- */
+  .f1{position:relative;min-height:92vh;display:flex;align-items:flex-end;background:radial-gradient(120% 160% at 85% 10%,rgba(217,166,63,.30),transparent 55%),var(--ink);color:var(--cream);padding:96px 0 72px;cursor:pointer;overflow:hidden}
+  .f1>image-slot{position:absolute;inset:0;opacity:.55;filter:grayscale(.2)}
+  .f1-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,.15) 30%,rgba(13,13,13,.82));pointer-events:none}
+  .f1-copy{position:relative;z-index:1;max-width:760px}
   .f1-live{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(250,248,242,.35);border-radius:100px;padding:9px 18px;font-family:var(--font-body);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-bottom:26px}
   .f1-live::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
   @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(217,166,63,.6)}50%{opacity:.6;box-shadow:0 0 0 8px rgba(217,166,63,0)}}
   .f1-copy h2{font-family:var(--font-campaign);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:.01em;line-height:.98;font-size:clamp(42px,6vw,88px)}
-  .f1-copy h2 .accent{color:var(--red)}
+  .f1-copy h2 .accent{color:var(--orange)}
   .f1-copy p{max-width:560px;font-size:17px;line-height:1.55;color:var(--grey);margin:22px 0 32px}
+  .f1-ctas{display:flex;gap:12px;flex-wrap:wrap}
 
   /* ---------- SECTION HEADERS ---------- */
   section{padding:110px 0}
@@ -140,8 +208,8 @@
   /* ---------- SERVICES ---------- */
   .svc{border-top:1.5px solid var(--ink)}
   .svc-item{border-bottom:1.5px solid var(--ink)}
-  .svc-row{display:grid;grid-template-columns:90px 1fr auto auto;align-items:center;gap:24px;padding:30px 0;cursor:pointer;transition:.2s}
-  .svc-row:hover{padding-left:14px}
+  .svc-row{display:grid;grid-template-columns:90px 1fr auto auto;align-items:center;gap:24px;padding:30px 0;cursor:pointer;transition:transform 180ms ease}
+  .svc-row:hover{transform:translateX(8px)}
   .svc-num{font-family:var(--font-body);font-weight:500;color:var(--orange);font-size:15px}
   .svc-title{font-family:var(--font-heading);font-weight:600;font-size:clamp(24px,3vw,36px);line-height:1.1}
   .svc-tags{display:flex;gap:8px}
@@ -152,9 +220,6 @@
   /* ---------- DARK BAND (breaks up the cream) ---------- */
   .dark-band{background:var(--ink);color:var(--cream)}
   .dark-band .sec-head p{color:var(--grey)}
-  .dark-band .ind-card{background:#141414;border-color:rgba(250,248,242,.25);color:var(--cream)}
-  .dark-band .ind-card p{color:var(--grey)}
-  .dark-band .ind-card .arrow{border-color:rgba(250,248,242,.5);color:var(--cream)}
   .svc-toggle{width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:300;transition:.3s;flex-shrink:0}
   .svc-item.open .svc-toggle{background:var(--ink);color:var(--cream);transform:rotate(45deg)}
   .svc-body{max-height:0;overflow:hidden;transition:max-height .45s ease}
@@ -169,29 +234,20 @@
     .svc-body-inner{grid-template-columns:1fr;padding-left:50px}
   }
 
-  /* ---------- INDUSTRIES ---------- */
-  .ind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  @media(max-width:900px){.ind-grid{grid-template-columns:1fr}}
-  .ind-card{border:1.5px solid var(--ink);border-radius:20px;padding:34px 32px 30px;cursor:pointer;transition:.25s;position:relative;overflow:hidden;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--cream)}
-  .ind-photo{position:relative;height:170px;margin-bottom:20px;border-radius:10px;overflow:hidden}
-  .ind-card::before{content:"";position:absolute;inset:0;opacity:0;transition:.3s;background:var(--ind-grad)}
-  .ind-card:hover::before{opacity:1}
-  .ind-card>*{position:relative}
-  .ind-card .mono{font-size:12px;font-weight:500;color:var(--orange);letter-spacing:.14em}
-  .ind-card h3{font-size:24px;margin:12px 0 10px}
-  .ind-card p{font-size:16px;line-height:1.5;color:#2A2925;max-width:440px}
-  .ind-card .arrow{position:absolute;top:26px;right:26px;width:44px;height:44px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:18px;transition:.25s}
-  .ind-card:hover{color:#fff;border-color:transparent;transform:translateY(-3px)}
-  .ind-card:hover p{color:rgba(255,255,255,.88)}
-  .ind-card:hover .mono{color:#fff}
-  .ind-card:hover .arrow{border-color:#fff;color:#fff;transform:rotate(45deg)}
+  /* ---------- INDUSTRIES (editorial browse row) ---------- */
+  .ind-card{cursor:pointer}
+  .ind-card .raw-card-media{position:relative;aspect-ratio:4/5;border-radius:8px;overflow:hidden;background:#1a1a1a}
+  .ind-card .raw-card-media image-slot{position:absolute;inset:0}
+  .ind-card .mono{display:block;font-size:12px;font-weight:500;color:var(--orange);letter-spacing:.14em;margin-top:18px}
+  .ind-card h3{font-size:20px;margin:8px 0 6px}
+  .ind-card p{font-size:15px;line-height:1.5;color:var(--grey)}
 
   /* ---------- SHOWCASE OVERLAY ---------- */
   .showcase{position:fixed;inset:0;z-index:200;background:var(--ink);color:var(--cream);overflow-y:auto;transform:translateY(100%);transition:transform .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
   .showcase.open{transform:translateY(0);visibility:visible}
   .sc-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:22px 48px;background:linear-gradient(var(--ink) 60%,transparent);z-index:5}
   .sc-close{width:52px;height:52px;border:1.5px solid var(--cream);border-radius:50%;background:transparent;color:var(--cream);font-size:20px;cursor:pointer;transition:.2s}
-  .sc-close:hover{background:var(--orange);border-color:var(--orange);transform:rotate(90deg)}
+  .sc-close:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
   .sc-body{padding:30px 48px 90px;max-width:1440px;margin:0 auto}
   @media(max-width:720px){.sc-top,.sc-body{padding-left:20px;padding-right:20px}}
   .sc-body h2{font-size:clamp(40px,5vw,64px)}
@@ -208,8 +264,6 @@
   .sc-tile .cap{font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-top:12px;opacity:.9}
   .sc-stats{display:flex;gap:72px;flex-wrap:wrap;margin:70px 0;padding-top:44px;border-top:1px solid rgba(250,248,242,.25)}
   .sc-nav{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;border-top:1px solid rgba(250,248,242,.25);padding-top:40px}
-  .sc-nav .btn{border-color:var(--cream);color:var(--cream)}
-  .sc-nav .btn:hover{background:var(--cream);color:var(--ink)}
 
   /* ---------- GLOBAL ---------- */
   .global{background:var(--ink);color:var(--cream)}
@@ -240,11 +294,12 @@
   .proof-head p{color:var(--grey);font-size:18px;margin:18px 0 30px}
   .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:left}
   @media(max-width:960px){.case-grid{grid-template-columns:1fr}}
-  .case-card{position:relative;min-height:580px;border-radius:6px;overflow:hidden;padding:26px 26px 22px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.25s}
-  .case-card>image-slot{position:absolute;inset:0;z-index:0;opacity:.5}
+  .case-card{position:relative;min-height:580px;border-radius:6px;overflow:hidden;padding:26px 26px 22px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:transform 180ms ease}
+  .case-card>image-slot{position:absolute;inset:0;z-index:0;opacity:.5;transition:transform 350ms cubic-bezier(.25,.46,.45,.94)}
   .case-card>div{position:relative;z-index:1;pointer-events:none}
   .case-card>div a,.case-card>div button{pointer-events:auto}
-  .case-card:hover{transform:translateY(-4px)}
+  .case-card:hover{transform:translateY(-2px)}
+  .case-card:hover>image-slot{transform:scale(1.035)}
   .case-top{display:flex;justify-content:space-between;align-items:flex-start}
   .case-label{font-size:12px;font-weight:500;letter-spacing:.22em;color:var(--volt);text-transform:uppercase;display:flex;align-items:center;gap:12px}
   .case-label::after{content:"";width:28px;height:10px;background:var(--volt)}
@@ -298,7 +353,7 @@
       <a href="#contact">Talent</a>
       <a href="#contact">Brands</a>
     </div>
-    <a href="#contact" class="btn solid">Let's Talk ↗</a>
+    <a href="#contact" class="raw-btn raw-btn-primary">Let's Talk</a>
   </div>
 </nav>
 
@@ -381,14 +436,18 @@
   </div>
 </div>
 
-<section class="f1" id="f1" onclick="openShowcase('f1')" style="padding:96px 0">
-  <div class="wrap f1-inner">
-    <div class="f1-mark">F1</div>
+<section class="f1" id="f1" onclick="openShowcase('f1')">
+  <image-slot id="f1-bg" shape="rect" fit="cover" placeholder="Drop the F1 campaign image"></image-slot>
+  <div class="f1-scrim"></div>
+  <div class="wrap">
     <div class="f1-copy">
       <span class="f1-live">F1 Abu Dhabi · Yas Marina · Dec 3–6, 2026</span>
       <h2>One yacht. One weekend.<br><span class="accent">The season finale.</span></h2>
       <p>A private superyacht experience at the heart of the Abu Dhabi Grand Prix — 120 vetted guests, invitation and referral only. Celebrities, athletes, founders, and a capped slate of brand partnerships. The berth is locked. The room can't be bought anywhere else that weekend.</p>
-      <span class="btn" style="border-color:var(--cream);color:var(--cream)">Enquire about access ↗</span>
+      <div class="f1-ctas">
+        <span class="raw-btn raw-btn-primary">Enquire about access</span>
+        <a class="raw-btn raw-btn-secondary" href="#contact" onclick="event.stopPropagation()">Partner with us</a>
+      </div>
     </div>
   </div>
 </section>
@@ -479,36 +538,39 @@
         <div class="kicker">Industries</div>
         <h2>Where<br>we cooked.</h2>
       </div>
-      <p>Every industry has its own culture. Click through to see the campaigns, the services behind them, and what they delivered.</p>
+      <div class="browse-ctl">
+        <button type="button" aria-label="Scroll industries back" onclick="browseScroll(-1)">←</button>
+        <button type="button" aria-label="Scroll industries forward" onclick="browseScroll(1)">→</button>
+      </div>
     </div>
-    <div class="ind-grid">
-      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#8A6512,#D9A63F)" onclick="openShowcase('festivals')">
-        <span class="arrow">↗</span>
+    <div class="browse-row" id="indRow">
+      <div class="raw-card ind-card" onclick="openShowcase('festivals')">
+        <div class="raw-card-media"><image-slot id="ind-festivals" shape="rect" fit="cover" placeholder="Festival campaign image"></image-slot></div>
         <span class="mono">001 / FESTIVAL CAMPAIGNS</span>
         <h3>Festival Campaigns</h3>
-        <p>We built a festival from zero — brand, campaign, tickets on sale — plus 25+ international activations where culture gathers.</p>
+        <p>Built from zero — brand, campaign, tickets on sale — plus 25+ international activations.</p>
       </div>
-      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#1a1a1a,#D9A63F)" onclick="openShowcase('fashion')">
-        <span class="arrow">↗</span>
-        <span class="mono">002 / FASHION &amp; MERCH CAMPAIGNS</span>
+      <div class="raw-card ind-card" onclick="openShowcase('fashion')">
+        <div class="raw-card-media"><image-slot id="ind-fashion" shape="rect" fit="cover" placeholder="Fashion &amp; merch image"></image-slot></div>
+        <span class="mono">002 / FASHION &amp; MERCH</span>
         <h3>Fashion &amp; Merch</h3>
-        <p>Creator collabs that move product and drops that sell out — from concept to checkout, worn worldwide.</p>
+        <p>Creator collabs that move product and drops that sell out — concept to checkout.</p>
       </div>
-      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#8E8778,#D9A63F)" onclick="openShowcase('hospitality')">
-        <span class="arrow">↗</span>
-        <span class="mono">003 / HOSPITALITY CAMPAIGNS</span>
+      <div class="raw-card ind-card" onclick="openShowcase('hospitality')">
+        <div class="raw-card-media"><image-slot id="ind-hospitality" shape="rect" fit="cover" placeholder="Hospitality campaign image"></image-slot></div>
+        <span class="mono">003 / HOSPITALITY</span>
         <h3>Hospitality Campaigns</h3>
         <p>Restaurant launches and dining moments the whole city talks about.</p>
       </div>
-      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#8E8778,#8A6512)" onclick="openShowcase('products')">
-        <span class="arrow">↗</span>
+      <div class="raw-card ind-card" onclick="openShowcase('products')">
+        <div class="raw-card-media"><image-slot id="ind-products" shape="rect" fit="cover" placeholder="Product campaign image"></image-slot></div>
         <span class="mono">004 / PRODUCT CAMPAIGNS</span>
         <h3>Product Campaigns</h3>
         <p>Launches that turn shelf items into cultural objects — like honey that stings.</p>
       </div>
-      <div class="ind-card" style="--ind-grad:linear-gradient(135deg,#2E2B26,#E9E5D8)" onclick="openShowcase('sports')">
-        <span class="arrow">↗</span>
-        <span class="mono">005 / SPORTS &amp; STREAMING ACTIVATIONS</span>
+      <div class="raw-card ind-card" onclick="openShowcase('sports')">
+        <div class="raw-card-media"><image-slot id="ind-sports" shape="rect" fit="cover" placeholder="Sports &amp; streaming image"></image-slot></div>
+        <span class="mono">005 / SPORTS &amp; STREAMING</span>
         <h3>Sports &amp; Streaming</h3>
         <p>Athlete endorsements and IRL streaming moments — live, unscripted, everywhere.</p>
       </div>
@@ -551,7 +613,7 @@
     <div class="proof-head">
       <div class="proof-kicker">Proven success with The RAW</div>
       <p>Three proof points. One system built to turn cultural attention into commercial power.</p>
-      <a class="btn volt" href="#industries">View case studies ↗</a>
+      <a class="raw-btn raw-btn-secondary" href="#industries">View case studies</a>
     </div>
     <div class="case-grid">
       <div class="case-card" onclick="openShowcase('festivals')" style="background:
@@ -643,7 +705,7 @@
       <div class="kicker">Let's Talk</div>
       <h2>Ready to<br>disrupt?</h2>
       <p>Whether you're a brand chasing culture or talent chasing the right rooms — send us a message and let's make it happen.</p>
-      <a class="btn" href="mailto:benny@therawculture.io">benny@therawculture.io</a>
+      <a class="raw-btn raw-btn-ghost-ink" href="mailto:benny@therawculture.io">benny@therawculture.io</a>
     </div>
     <div>
       <div class="audience-toggle">
@@ -667,7 +729,7 @@
         </div>
         <div class="field" id="f-links" style="display:none"><label>Socials / portfolio</label><input placeholder="@handle or link"></div>
         <div class="field"><label>Message</label><textarea id="f-msg" placeholder="Tell us what you're building"></textarea></div>
-        <button class="btn orange" type="submit">Submit</button>
+        <button class="raw-btn raw-btn-ink" type="submit">Submit</button>
       </form>
     </div>
   </div>
@@ -793,8 +855,8 @@
         <div class="g-stat"><div class="display" style="font-family:var(--font-poster);text-transform:uppercase;font-size:clamp(60px,7.5vw,116px)">${s[0]}</div><p style="font-size:14px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);margin-top:12px">${s[1]}</p></div>`).join('')}
       </div>
       <div class="sc-nav">
-        <a class="btn" href="#contact" onclick="closeShowcase()">Start a project like this ↗</a>
-        <a class="btn" href="javascript:openShowcase('${d.next}')">Next: ${d.nextLabel} →</a>
+        <a class="raw-btn raw-btn-primary" href="#contact" onclick="closeShowcase()">Start a project like this</a>
+        <a class="raw-btn raw-btn-secondary" href="javascript:openShowcase('${d.next}')">Next: ${d.nextLabel} →</a>
       </div>`;
     const sc=document.getElementById('showcase');
     sc.classList.add('open');sc.scrollTop=0;
@@ -805,6 +867,38 @@
     document.body.style.overflow='';
   }
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeShowcase()});
+  // Horizontal browse row controls
+  function browseScroll(dir){
+    const row=document.getElementById('indRow');
+    if(!row)return;
+    const card=row.firstElementChild;
+    const step=card?card.getBoundingClientRect().width+18:360;
+    row.scrollBy({left:dir*step,behavior:'smooth'});
+  }
+  // Scroll-triggered fade-up reveals (raw-reveal)
+  (function(){
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    const els=document.querySelectorAll('.sec-head, .hero-sub>p, .path-card, .svc-item, .ind-card, .g-cell, .g-stat, .case-card, .step, .proof-head, .f1-copy, .contact-left, .contact-grid>div:last-child');
+    const counts=new Map();
+    els.forEach(el=>{
+      const p=el.parentElement,i=counts.get(p)||0;
+      counts.set(p,i+1);
+      el.classList.add('raw-reveal');
+      el.dataset.rd=Math.min(i*70,280);
+      el.style.transitionDelay=el.dataset.rd+'ms';
+    });
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        if(!en.isIntersecting)return;
+        io.unobserve(en.target);
+        const el=en.target;
+        el.classList.add('is-visible');
+        // hand the element back to its own transitions once the reveal lands
+        setTimeout(()=>{el.classList.remove('raw-reveal','is-visible');el.style.transitionDelay='';},+el.dataset.rd+650);
+      });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(el=>io.observe(el));
+  })();
   // Animated count-up for global stats
   const fmt=(v,compact)=>compact?new Intl.NumberFormat('en',{notation:'compact',maximumFractionDigits:1}).format(v):Math.round(v).toString();
   const statsObs=new IntersectionObserver(entries=>{
