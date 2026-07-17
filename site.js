@@ -12,7 +12,7 @@ function browseScroll(dir, rowId) {
 // Scroll-triggered fade-up reveals (raw-reveal)
 (function () {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const els = document.querySelectorAll('.sec-head, .statement-copy, .who-card, .svc-item, .ind-card, .g-cell, .g-stat, .case-card, .step, .proof-head, .f1-copy, .contact-left, .contact-grid>div:last-child, .sw-card, .stat-block, .ed-row, .case-story, .case-stats, .case-gallery image-slot, .page-hero>*, .about-body>*, .ig-copy>*, .partnership-hero-copy, .partner-split-card, .partner-lane, .campaign-card, .partner-step, .cooking-copy, .cooking-ticket, .cooking-stat');
+  const els = document.querySelectorAll('.sec-head, .statement-copy, .who-card, .svc-item, .ind-card, .g-cell, .g-stat, .proof-stat, .case-card, .step, .proof-head, .f1-copy, .contact-left, .contact-grid>div:last-child, .sw-card, .stat-block, .ed-row, .case-story, .case-stats, .case-gallery image-slot, .page-hero>*, .about-body>*, .ig-copy>*, .partnership-hero-copy, .partner-split-card, .partner-lane, .campaign-card, .partner-step, .cooking-copy, .cooking-ticket, .cooking-stat');
   const counts = new Map();
   els.forEach(el => {
     const p = el.parentElement, i = counts.get(p) || 0;

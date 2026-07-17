@@ -132,10 +132,10 @@
       </div>
     </div>
     <div class="cooking-board" aria-label="Partnership campaign preview">
-      <a class="cooking-ticket cooking-ticket-image" href="partnerships.html#campaigns">
-        <img src="../assets/campaigns/latam-ufc-cover.jpg" alt="The RAW UFC LATAM campaign cover">
-        <span>UFC LATAM</span>
-      </a>
+      <div class="cooking-ticket cooking-ticket-image cooking-ticket-video" aria-label="UFC LATAM placeholder video">
+        <iframe src="https://www.youtube-nocookie.com/embed/OmIV5QMc4uU?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;controls=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3" title="UFC LATAM placeholder video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media"></iframe>
+        <a class="cooking-ticket-label" href="partnerships.html#campaigns">UFC LATAM</a>
+      </div>
       <a class="cooking-ticket cooking-ticket-type" href="partnerships.html#f1">
         <small>Featured live opportunity</small>
         <strong>F1 Abu Dhabi</strong>
@@ -343,13 +343,25 @@
 
 <section class="stats-strip">
   <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat-block"><div class="num">100,000</div><p>Tickets sold — Juicy Fest 2023</p></div>
-      <div class="stat-block"><div class="num">44,000</div><p>Tickets in 4 hours — demand crashed the ticketing sites</p></div>
-      <div class="stat-block"><div class="num">$250m</div><p>Annual revenue in 4 years — Youfoodz launch team</p></div>
-      <div class="stat-block"><div class="num">$100m+</div><p>Revenue across projects our team has launched</p></div>
+    <div class="stats-grid proof-stats proof-stats-light proof-stats-four">
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">100,000</div>
+        <p class="proof-stat-label">Tickets sold <span>Juicy Fest 2023</span></p>
+      </div>
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">44,000</div>
+        <p class="proof-stat-label">Tickets in 4 hours <span>Demand crashed the ticketing sites</span></p>
+      </div>
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">$250m</div>
+        <p class="proof-stat-label">Annual revenue <span>Within 4 years at Youfoodz</span></p>
+      </div>
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">$100m+</div>
+        <p class="proof-stat-label">Revenue across launched projects</p>
+      </div>
     </div>
-    <p class="stats-note">Our team ran the launch side of these brands — the demand, not the operations.</p>
+    <p class="stats-note proof-stat-note">Our team ran the launch side of these brands — the demand, not the operations.</p>
   </div>
 </section>
 
@@ -367,10 +379,10 @@
       <div class="g-cell"><span class="mono">1B+ streams</span><h3>Everywhere Online</h3></div>
       <div class="g-cell hot"><span class="mono">All platforms</span><h3>18+ Streams</h3></div>
     </div>
-    <div class="global-stats" id="global-stats">
-      <div class="g-stat"><div class="display"><span class="cnt" data-end="1000000000" data-compact="1">0</span><span>+</span></div><p>Streams</p><small>Across every platform and partner network.</small></div>
-      <div class="g-stat"><div class="display"><span class="cnt" data-end="6">0</span><span>+</span></div><p>Markets</p><small>Live campaigns from Auckland to Mexico City.</small></div>
-      <div class="g-stat"><div class="display"><span class="cnt" data-end="4">0</span></div><p>Continents</p><small>Boots on the ground, not just ads in the feed.</small></div>
+    <div class="global-stats proof-stats proof-stats-dark proof-stats-three" id="global-stats">
+      <div class="g-stat proof-stat"><div class="display proof-stat-number"><span class="cnt" data-end="1000000000" data-compact="1">0</span><span>+</span></div><p class="proof-stat-label">Streams</p><small class="proof-stat-detail">Across every platform and partner network.</small></div>
+      <div class="g-stat proof-stat"><div class="display proof-stat-number"><span class="cnt" data-end="6">0</span><span>+</span></div><p class="proof-stat-label">Markets</p><small class="proof-stat-detail">Live campaigns from Auckland to Mexico City.</small></div>
+      <div class="g-stat proof-stat"><div class="display proof-stat-number"><span class="cnt" data-end="4">0</span></div><p class="proof-stat-label">Continents</p><small class="proof-stat-detail">Boots on the ground, not just ads in the feed.</small></div>
     </div>
   </div>
 </section>
@@ -640,8 +652,8 @@
           <div><div class="big">${t.big}</div><div class="cap">${t.cap}</div></div>
         </div>`).join('')}
       </div>
-      <div class="sc-stats">${d.stats.map(s=>`
-        <div class="g-stat"><div class="display" style="font-family:var(--font-poster);text-transform:uppercase;font-size:clamp(60px,7.5vw,116px)">${s[0]}</div><p style="font-size:14px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--grey);margin-top:12px">${s[1]}</p></div>`).join('')}
+      <div class="sc-stats proof-stats proof-stats-dark">${d.stats.map(s=>`
+        <div class="g-stat proof-stat"><div class="display proof-stat-number">${s[0]}</div><p class="proof-stat-label">${s[1]}</p></div>`).join('')}
       </div>
       <div class="sc-nav">
         <a class="raw-btn raw-btn-primary" href="#contact" onclick="closeShowcase()">Start a project like this</a>
