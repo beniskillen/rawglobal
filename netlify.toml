@@ -1,0 +1,86 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/Pages/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/Pages/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/work"
+  to = "/Pages/work.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/work.html"
+  to = "/Pages/work.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/partnerships"
+  to = "/Pages/partnerships.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/partnerships.html"
+  to = "/Pages/partnerships.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/what-we-do"
+  to = "/Pages/what-we-do.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/what-we-do.html"
+  to = "/Pages/what-we-do.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "/Pages/about.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/Pages/about.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/igaming"
+  to = "/Pages/igaming.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/igaming.html"
+  to = "/Pages/igaming.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/Pages/contact.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/Pages/contact.html"
+  status = 200
+  force = true
