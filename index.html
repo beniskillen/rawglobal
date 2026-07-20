@@ -1,16 +1,832 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>theraw. - Culture. Talent. Capital.</title>
-  <meta http-equiv="refresh" content="0; url=/pages/">
-  <link rel="canonical" href="/pages/">
-  <script>
-    window.location.replace('/pages/' + window.location.hash);
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>theraw. — Culture. Talent. Capital.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wdth,wght@0,100,500;0,100,600;0,125,900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<script src="site.js" defer></script>
+<link rel="stylesheet" href="site.css">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
-  <p><a href="/pages/">Continue to The RAW</a></p>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="/" class="lockup">theraw<img class="rmark" src="assets/logo-r.png" alt="The Raw"></a>
+    <div class="nav-links">
+      <a href="/Pages/work.html">Work</a>
+      <a href="/Pages/partnerships.html">Partnerships</a>
+      <a href="/Pages/what-we-do.html">What we do</a>
+      <a href="/Pages/about.html">About</a>
+      <a href="/Pages/igaming.html">iGaming</a>
+    </div>
+    <a href="/Pages/contact.html" class="raw-btn raw-btn-primary">Start a conversation</a>
+  </div>
+</nav>
+
+<header class="hero-journey" id="heroJourney">
+  <div class="hj-sticky">
+    <canvas id="globeCanvas"></canvas>
+    <div class="hj-hint" id="hjHint">
+      <span class="tagline">On the ground. Everywhere online.</span>
+      <span class="scroll-word">Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+    <div class="hj-caps">
+      <div class="hj-cap" id="hjCap0">
+        <div class="cap-head"><span class="cap-idx">01</span><span class="cap-city">New Zealand</span></div>
+        <p>Home turf. Where The RAW started — and where campaigns still launch first.</p>
+      </div>
+      <div class="hj-cap" id="hjCap1">
+        <div class="cap-head"><span class="cap-idx">02</span><span class="cap-city">Australia</span></div>
+        <p>Festival country. Where we’ve built festivals from zero — brand, campaign, tickets on sale.</p>
+      </div>
+      <div class="hj-cap" id="hjCap2">
+        <div class="cap-head"><span class="cap-idx">03</span><span class="cap-city">Indonesia</span></div>
+        <p>APAC creator networks with real pull — campaigns that speak the local language.</p>
+      </div>
+      <div class="hj-cap" id="hjCap3">
+        <div class="cap-head"><span class="cap-idx">04</span><span class="cap-city">UAE</span></div>
+        <p>F1 Abu Dhabi. One yacht, 120 vetted guests, the season finale.</p>
+      </div>
+      <div class="hj-cap" id="hjCap4">
+        <div class="cap-head"><span class="cap-idx">05</span><span class="cap-city">USA</span></div>
+        <p>1B+ streams of reach — athletes, streamers, and IRL moments live everywhere.</p>
+      </div>
+      <div class="hj-cap" id="hjCap5">
+        <div class="cap-head"><span class="cap-idx">06</span><span class="cap-city">LATAM</span></div>
+        <p>Mexico City and beyond — creator-led campaigns with compliance handled.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="poster-hero">
+  <div class="wrap">
+    <div class="poster-cut">
+      <span class="pc-line">Make</span>
+      <span class="pc-line">Culture</span>
+      <span class="pc-line">Accessible</span>
+      <span class="pc-sign">The Raw.</span>
+    </div>
+    <div class="poster-sub">build ideas people feel &mdash; turn raw attention into real world impact</div>
+    <div class="poster-ctas">
+      <a class="raw-btn raw-btn-ink" href="#who-we-serve">Who we serve</a>
+      <a class="raw-btn raw-btn-ghost-ink" href="/Pages/contact.html">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement" id="who-we-serve">
+  <div class="wrap">
+    <div class="kicker">Who we serve</div>
+    <p class="statement-copy"><strong>The RAW is the heat marketing needs before it cooks.</strong> We plug brands into the talent, culture, and moments that actually convert &mdash; and put talent in the rooms where the real deals get done.</p>
+    <div class="who-foot">
+      <div class="who-kick">Two ways in</div>
+      <div class="who-ctas">
+        <a href="/Pages/partnerships.html#for-brands" class="who-card">
+          <small>For Brands</small>
+          <span class="who-line">Get inside the culture. Own the moment.</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="/Pages/partnerships.html#for-talent" class="who-card">
+          <small>For Talent</small>
+          <span class="who-line">Your audience is an asset. Cash it in.</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who-media" aria-label="Campaign film">
+  <!-- swap .video-slot for a real <video autoplay muted loop playsinline> with the same absolute-cover positioning -->
+  <div class="video-slot">
+    <div class="vs-inner">
+      <span class="vs-play">&#9654;</span>
+      <span class="vs-cap">Campaign film &mdash; 15&ndash;30s of what we do</span>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track" id="ticker">
+    <span>New Zealand <em>·</em> Australia <em>·</em> UAE <em>·</em> Indonesia <em>·</em> USA <em>·</em> LATAM <em>·</em> 18+ Streams <em>·</em></span>
+    <span>New Zealand <em>·</em> Australia <em>·</em> UAE <em>·</em> Indonesia <em>·</em> USA <em>·</em> LATAM <em>·</em> 18+ Streams <em>·</em></span>
+  </div>
+</div>
+
+<section class="cooking-module" id="partnerships-preview">
+  <div class="wrap cooking-grid">
+    <div class="cooking-copy">
+      <div class="kicker">Partnerships</div>
+      <h2>See what The RAW is cooking.</h2>
+      <p>Live campaign opportunities for brands and talent who want in before the room gets loud. Sport, entertainment, creators, access, and commercial moments - packaged cleanly.</p>
+      <div class="cooking-ctas">
+        <a class="raw-btn raw-btn-primary" href="/Pages/partnerships.html">View partnerships</a>
+        <a class="raw-btn raw-btn-secondary" href="/Pages/partnerships.html#campaigns">See campaigns</a>
+      </div>
+    </div>
+    <div class="cooking-board" aria-label="Partnership campaign preview">
+      <div class="cooking-ticket cooking-ticket-image cooking-ticket-video" aria-label="UFC LATAM placeholder video">
+        <iframe src="https://www.youtube-nocookie.com/embed/OmIV5QMc4uU?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;controls=0&amp;disablekb=1&amp;fs=0&amp;iv_load_policy=3" title="UFC LATAM placeholder video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media"></iframe>
+        <a class="cooking-ticket-label" href="/Pages/partnerships.html#campaigns">UFC LATAM</a>
+      </div>
+      <a class="cooking-ticket cooking-ticket-image cooking-ticket-f1" href="/Pages/what-we-do.html#f1">
+        <img src="assets/campaigns/f1-featured.jpg" alt="F1 Abu Dhabi yacht experience">
+        <span>F1 Abu Dhabi</span>
+      </a>
+      <a class="cooking-ticket cooking-ticket-image" href="/Pages/partnerships.html#campaigns">
+        <img src="assets/campaigns/mike-tyson-cover.jpg" alt="The RAW Mike Tyson casino partnership cover">
+        <span>Mike Tyson</span>
+      </a>
+      <div class="cooking-stat">
+        <strong>Brands + Talent</strong>
+        <span>Campaign ownership, paid roles, live moments, and the room to move.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">What we do</div>
+        <h2>End-to-end.<br>Both sides.</h2>
+      </div>
+      <p>From strategy to execution — every service works two ways: it puts brands inside culture, and it puts talent in the rooms where deals happen.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-item open">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">01</span>
+          <span class="svc-title">Sponsorships &amp; Endorsements</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>We broker the deals that matter — matching brands with the athletes, artists, and creators whose audiences actually convert. We have direct access to professional athletes at the highest level of their sport, and we put that reach to work for brands. Structured, measured, and built to renew.</p>
+          <ul><li>Elite professional athletes on call</li><li>Deal sourcing &amp; negotiation</li><li>Performance measurement</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">02</span>
+          <span class="svc-title">Talent Collaboration</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>Co-created campaigns where talent isn't a billboard — they're a partner. We shape collaborations people feel, from concept through content to launch, with influencer marketing that actually moves numbers.</p>
+          <ul><li>Influencer marketing at scale</li><li>Campaign co-creation</li><li>Content production</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">03</span>
+          <span class="svc-title">iGaming</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>iGaming traffic — the fastest-moving vertical in the game, and we speak the language. Creator-led iGaming campaigns with the right talent across multiple markets — APAC, LATAM, and beyond — with compliance handled.</p>
+          <ul><li>Traffic &amp; acquisition campaigns</li><li>APAC · LATAM · global markets</li><li>Compliance handled</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">04</span>
+          <span class="svc-title">Festival Work</span>
+          <span class="svc-tags"><span class="tag b">Brands</span><span class="tag t">Talent</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>We don't just show up at festivals — we build them. We've taken a festival from nothing: built the brand, launched the campaign, and ran it all the way to tickets on sale. Influencer marketing, activations, PR, billboards — the lot.</p>
+          <ul><li>Festival brand creation &amp; launch</li><li>Ticket sales &amp; influencer marketing</li><li>PR, billboards &amp; on-site activations</li></ul>
+        </div></div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-row" onclick="toggleSvc(this)">
+          <span class="svc-num">05</span>
+          <span class="svc-title">Bespoke Marketing</span>
+          <span class="svc-tags"><span class="tag b">Brands</span></span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <span></span>
+          <p>No template. Full-stack marketing built around your brief — strategy, creative, and execution. And if you just need the essentials done properly — websites, campaigns, collateral, social media design — we do that too, start to finish.</p>
+          <ul><li>Websites, campaigns &amp; collateral design</li><li>Social media design &amp; content</li><li>Strategy through to execution</li></ul>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="selected-work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Selected Work</div>
+        <h2>Proof, not promises.</h2>
+      </div>
+      <div class="browse-ctl on-light">
+        <button type="button" aria-label="Scroll work back" onclick="browseScroll(-1,'swRow')">←</button>
+        <button type="button" aria-label="Scroll work forward" onclick="browseScroll(1,'swRow')">→</button>
+      </div>
+    </div>
+    <div class="browse-row" id="swRow">
+      <a class="raw-card sw-card" href="/Pages/work.html#juicy-fest">
+        <div class="raw-card-media"><image-slot id="sw-juicy" shape="rect" fit="cover" placeholder="Juicy Fest image"></image-slot></div>
+        <h3>Juicy Fest</h3>
+        <p>100,000 tickets. Built from zero.</p>
+      </a>
+      <a class="raw-card sw-card" href="/Pages/work.html#youfoodz">
+        <div class="raw-card-media"><image-slot id="sw-youfoodz" shape="rect" fit="cover" placeholder="Youfoodz image"></image-slot></div>
+        <h3>Youfoodz</h3>
+        <p>Repositioned into a $250m business.</p>
+      </a>
+      <a class="raw-card sw-card" href="/Pages/work.html#red-rat">
+        <div class="raw-card-media"><image-slot id="sw-redrat" shape="rect" fit="cover" placeholder="Red Rat image"></image-slot></div>
+        <h3>Red Rat</h3>
+        <p>Streetwear, moved by culture.</p>
+      </a>
+      <a class="raw-card sw-card" href="/Pages/work.html#lavar-ball">
+        <div class="raw-card-media"><image-slot id="sw-lavar" shape="rect" fit="cover" placeholder="LaVar Ball image"></image-slot></div>
+        <h3>LaVar Ball</h3>
+        <p>Talent with gravity of its own.</p>
+      </a>
+      <a class="raw-card sw-card" href="/Pages/work.html#speed">
+        <div class="raw-card-media"><image-slot id="sw-speed" shape="rect" fit="cover" placeholder="Speed image"></image-slot></div>
+        <h3>Speed</h3>
+        <p>Live, unscripted, everywhere at once.</p>
+      </a>
+      <a class="raw-card sw-card" href="/Pages/work.html#pom">
+        <div class="raw-card-media"><image-slot id="sw-pom" shape="rect" fit="cover" placeholder="POM image"></image-slot></div>
+        <h3>POM</h3>
+        <p>A product turned cultural object.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="poster-cut">
+  <div class="wrap">
+    <h2><span>Authenticity</span><span>is the new <span class="accent">currency</span></span></h2>
+    <small>As the world automates, the real thing gets rarer. That's our edge.</small>
+  </div>
+</section>
+
+<section id="industries" class="dark-band">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="kicker">Industries</div>
+        <h2>Where<br>we cooked.</h2>
+      </div>
+      <div class="browse-ctl">
+        <button type="button" aria-label="Scroll industries back" onclick="browseScroll(-1)">←</button>
+        <button type="button" aria-label="Scroll industries forward" onclick="browseScroll(1)">→</button>
+      </div>
+    </div>
+    <div class="browse-row" id="indRow">
+      <div class="raw-card ind-card" onclick="openShowcase('festivals')">
+        <div class="raw-card-media"><image-slot id="ind-festivals" shape="rect" fit="cover" placeholder="Festival campaign image"></image-slot></div>
+        <span class="mono">001 / FESTIVAL CAMPAIGNS</span>
+        <h3>Festival Campaigns</h3>
+        <p>Built from zero — brand, campaign, tickets on sale — plus 25+ international activations.</p>
+      </div>
+      <div class="raw-card ind-card" onclick="openShowcase('fashion')">
+        <div class="raw-card-media"><image-slot id="ind-fashion" shape="rect" fit="cover" placeholder="Fashion &amp; merch image"></image-slot></div>
+        <span class="mono">002 / FASHION &amp; MERCH</span>
+        <h3>Fashion &amp; Merch</h3>
+        <p>Creator collabs that move product and drops that sell out — concept to checkout.</p>
+      </div>
+      <div class="raw-card ind-card" onclick="openShowcase('hospitality')">
+        <div class="raw-card-media"><image-slot id="ind-hospitality" shape="rect" fit="cover" placeholder="Hospitality campaign image"></image-slot></div>
+        <span class="mono">003 / HOSPITALITY</span>
+        <h3>Hospitality Campaigns</h3>
+        <p>Restaurant launches and dining moments the whole city talks about.</p>
+      </div>
+      <div class="raw-card ind-card" onclick="openShowcase('products')">
+        <div class="raw-card-media"><image-slot id="ind-products" shape="rect" fit="cover" placeholder="Product campaign image"></image-slot></div>
+        <span class="mono">004 / PRODUCT CAMPAIGNS</span>
+        <h3>Product Campaigns</h3>
+        <p>Launches that turn shelf items into cultural objects — like honey that stings.</p>
+      </div>
+      <div class="raw-card ind-card" onclick="openShowcase('sports')">
+        <div class="raw-card-media"><image-slot id="ind-sports" shape="rect" fit="cover" placeholder="Sports &amp; streaming image"></image-slot></div>
+        <span class="mono">005 / SPORTS &amp; STREAMING</span>
+        <h3>Sports &amp; Streaming</h3>
+        <p>Athlete endorsements and IRL streaming moments — live, unscripted, everywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="showcase" id="showcase">
+  <div class="sc-top">
+    <span class="lockup" style="color:var(--cream)">theraw<span class="tm">™</span></span>
+    <button class="sc-close" onclick="closeShowcase()">✕</button>
+  </div>
+  <div class="sc-body" id="sc-body"></div>
+</div>
+
+<section class="stats-strip">
+  <div class="wrap">
+    <div class="stats-grid proof-stats proof-stats-light proof-stats-four">
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">100,000</div>
+        <p class="proof-stat-label">Tickets sold <span>Juicy Fest 2023</span></p>
+      </div>
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">44,000</div>
+        <p class="proof-stat-label">Tickets in 4 hours <span>Demand crashed the ticketing sites</span></p>
+      </div>
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">$250m</div>
+        <p class="proof-stat-label">Annual revenue <span>Within 4 years at Youfoodz</span></p>
+      </div>
+      <div class="stat-block proof-stat">
+        <div class="num proof-stat-number">$100m+</div>
+        <p class="proof-stat-label">Revenue across launched projects</p>
+      </div>
+    </div>
+    <p class="stats-note proof-stat-note">Our team ran the launch side of these brands — the demand, not the operations.</p>
+  </div>
+</section>
+
+<section class="global" id="global" style="padding-top:110px">
+  <div class="wrap">
+    <div class="kicker">Global Reach</div>
+    <h2>On the ground.<br><span class="accent">Everywhere online.</span></h2>
+    <div class="global-grid">
+      <div class="g-cell"><span class="mono">41.3° S, 174.8° E</span><h3>New Zealand</h3></div>
+      <div class="g-cell"><span class="mono">25.3° S, 133.8° E</span><h3>Australia</h3></div>
+      <div class="g-cell"><span class="mono">24.0° N, 54.0° E</span><h3>UAE</h3></div>
+      <div class="g-cell"><span class="mono">6.2° S, 106.8° E</span><h3>Indonesia</h3></div>
+      <div class="g-cell"><span class="mono">39.8° N, 98.6° W</span><h3>USA</h3></div>
+      <div class="g-cell"><span class="mono">19.4° N, 99.1° W</span><h3>LATAM</h3></div>
+      <div class="g-cell"><span class="mono">1B+ streams</span><h3>Everywhere Online</h3></div>
+      <div class="g-cell hot"><span class="mono">All platforms</span><h3>18+ Streams</h3></div>
+    </div>
+    <div class="global-stats proof-stats proof-stats-dark proof-stats-three" id="global-stats">
+      <div class="g-stat proof-stat"><div class="display proof-stat-number"><span class="cnt" data-end="1000000000" data-compact="1">0</span><span>+</span></div><p class="proof-stat-label">Streams</p><small class="proof-stat-detail">Across every platform and partner network.</small></div>
+      <div class="g-stat proof-stat"><div class="display proof-stat-number"><span class="cnt" data-end="6">0</span><span>+</span></div><p class="proof-stat-label">Markets</p><small class="proof-stat-detail">Live campaigns from Auckland to Mexico City.</small></div>
+      <div class="g-stat proof-stat"><div class="display proof-stat-number"><span class="cnt" data-end="4">0</span></div><p class="proof-stat-label">Continents</p><small class="proof-stat-detail">Boots on the ground, not just ads in the feed.</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="proof">
+  <div class="wrap">
+    <div class="proof-head">
+      <div class="proof-kicker">Proven success with The RAW</div>
+      <p>Three proof points. One system built to turn cultural attention into commercial power.</p>
+      <a class="raw-btn raw-btn-secondary" href="#industries">View case studies</a>
+    </div>
+    <div class="case-grid">
+      <div class="case-card" onclick="openShowcase('festivals')" style="background:
+        radial-gradient(90% 60% at 75% 30%,rgba(217,166,63,.14),transparent 60%),
+        radial-gradient(120% 80% at 20% 80%,rgba(217,166,63,.28),transparent 55%),
+        linear-gradient(160deg,#1c1a14,#0D0D0D 70%)">
+        <div>
+          <div class="case-top">
+            <div><div class="case-label">Case Study 01</div><div class="case-words">Culture<br>Experience<br>Impact</div></div>
+            <div class="case-plus">+<span>+</span><span>+</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="case-num">25+</div>
+          <div class="case-cap">Major Festival Activations</div>
+          <div class="case-foot">
+            <span>01</span><span class="case-bar"><i></i></span>
+            <span>34.0522° N, 118.2437° W</span>
+            <svg class="case-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M3.5 6.5h17M3.5 17.5h17"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="case-card" onclick="openShowcase('products')" style="background:
+        radial-gradient(70% 55% at 70% 55%,rgba(217,166,63,.30),transparent 65%),
+        linear-gradient(160deg,#131308,#0D0D0D 75%)">
+        <div>
+          <div class="case-top">
+            <div><div class="case-label">Case Study 02</div><div class="case-words">Brand<br>Partnerships<br>Growth</div></div>
+            <div class="case-plus">+<span>+</span><span>+</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="case-num">100+</div>
+          <div class="case-cap">Brands Worked With</div>
+          <div class="case-foot">
+            <span>02</span><span class="case-bar"><i style="width:60%"></i></span>
+            <span>40.7128° N, 74.0060° W</span>
+            <svg class="case-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M3.5 6.5h17M3.5 17.5h17"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="case-card" onclick="openShowcase('sports')" style="background:
+        radial-gradient(100% 70% at 80% 20%,rgba(142,135,120,.45),transparent 60%),
+        radial-gradient(80% 60% at 20% 90%,rgba(217,166,63,.10),transparent 55%),
+        linear-gradient(160deg,#10131c,#0D0D0D 75%)">
+        <div>
+          <div class="case-top">
+            <div><div class="case-label">Case Study 03</div><div class="case-words">Creator<br>Community<br>Reach</div></div>
+            <div class="case-plus">+<span>+</span><span>+</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="case-num">1,000+</div>
+          <div class="case-cap">Influencers Activated</div>
+          <div class="case-foot">
+            <span>03</span><span class="case-bar"><i style="width:75%"></i></span>
+            <span>51.5074° N, 0.1278° W</span>
+            <svg class="case-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M3.5 6.5h17M3.5 17.5h17"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="story-steps">
+      <div class="step">
+        <div class="num">01</div>
+        <small>The Challenge</small>
+        <h3>Stop being background noise.</h3>
+        <p>Brand X needed more than visibility. They needed to enter the cultural conversation in a way people actually felt.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <small>The Access</small>
+        <h3>Get in the right rooms.</h3>
+        <p>We connected the brand with the right talent, culture, and moment — turning attention into a campaign people wanted to talk about.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <small>The Outcome</small>
+        <h3>Attention became capital.</h3>
+        <p>The campaign converted culture into measurable growth, stronger reach, and real commercial impact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close-cta">
+  <div class="wrap">
+    <h2>Got something<br>worth launching?</h2>
+    <a class="raw-btn raw-btn-primary" href="#contact">Start a conversation</a>
+  </div>
+</section>
+
+<section class="contact" id="contact" style="border-top:1.5px solid var(--ink)">
+  <div class="wrap contact-grid">
+    <div class="contact-left">
+      <div class="kicker">Let's Talk</div>
+      <h2>Ready to<br>disrupt?</h2>
+      <p>Whether you're a brand chasing culture or talent chasing the right rooms — send us a message and let's make it happen.</p>
+      <a class="raw-btn raw-btn-ghost-ink" href="mailto:benny@therawculture.io">benny@therawculture.io</a>
+    </div>
+    <div>
+      <div class="audience-toggle">
+        <button id="tb-brand" class="active" onclick="setAudience('brand')">I'm a Brand</button>
+        <button id="tb-talent" onclick="setAudience('talent')">I'm Talent</button>
+      </div>
+      <form onsubmit="event.preventDefault();alert('Mockup only — form not wired up.')">
+        <div class="field"><label>Name</label><input placeholder="Your name"></div>
+        <div class="field"><label>Email</label><input id="f-email" placeholder="you@brand.com"></div>
+        <div class="field" id="f-svc-wrap"><label>Services of interest</label>
+          <select id="f-svc">
+            <option>Sponsorships &amp; Endorsements</option>
+            <option>Talent Collaboration</option>
+            <option>iGaming</option>
+            <option>Festival Work</option>
+            <option>Bespoke Marketing</option>
+          </select>
+        </div>
+        <div class="field" id="f-budget"><label>Budget range</label>
+          <select><option>Not sure on a budget</option><option>$10k–50k</option><option>$50k–250k</option><option>$250k+</option></select>
+        </div>
+        <div class="field" id="f-links" style="display:none"><label>Socials / portfolio</label><input placeholder="@handle or link"></div>
+        <div class="field"><label>Message</label><textarea id="f-msg" placeholder="Tell us what you're building"></textarea></div>
+        <button class="raw-btn raw-btn-ink" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner" style="padding-bottom:26px;border-bottom:1px solid rgba(250,248,242,.12);margin-bottom:26px">
+    <span class="lockup" style="color:var(--cream)">theraw<span class="tm">™</span></span>
+    <div class="foot-nav">
+      <a href="/Pages/work.html">Work</a>
+      <a href="/Pages/partnerships.html">Partnerships</a>
+      <a href="/Pages/what-we-do.html">What we do</a>
+      <a href="/Pages/about.html">About</a>
+      <a href="/Pages/igaming.html">iGaming</a>
+      <a href="/Pages/contact.html">Contact</a>
+    </div>
+    <div class="foot-social">
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.1h4.52V23H.24V8.1zM8.34 8.1h4.33v2.04h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.43 3.01 5.43 6.93V23h-4.52v-7.24c0-1.73-.03-3.95-2.41-3.95-2.41 0-2.78 1.88-2.78 3.83V23H8.34V8.1z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg></a>
+    </div>
+  </div>
+  <div class="wrap foot-inner">
+    <span>We Make culture accessible · Build ideas people feel · Turn raw attention into real world impact</span>
+    <span class="mono">© 2026 The RAW</span>
+  </div>
+</footer>
+
+<script>
+  function toggleSvc(row){
+    const item=row.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.svc-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  }
+  const industries={
+    f1:{
+      num:'000',title:'F1 Abu Dhabi<br><span class="accent">Yacht Experience.</span>',
+      lede:"Yas Marina, December 3–6, 2026 — the final race of the season. The RAW is hosting a private superyacht experience at the heart of race weekend: 120 guests, invitation and referral only. Every paying guest is vetted, and the ticket price is the filter — founders, family offices, athletes, and entertainers from the UAE, US, and Europe under one roof. For brands, a capped slate of partnerships puts your product inside the room: integrated placement (environment, not banners), influencer and celebrity proximity, professional content capture across the weekend, and a post-event asset library built to repurpose. Proven at Monaco. Perfected for Abu Dhabi.",
+      services:['Brand Partnerships — capped','VIP Access — vetted & referral only','Content Engine','Master-Suite Hosting'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#0D0D0D,#8A6512)',ink:'#fff',tag:'THE ROOM',big:'120 guests. Vetted.',cap:'Invitation &amp; referral only — no walk-ups, no dilution'},
+        {grad:'linear-gradient(160deg,#8A6512,#D9A63F)',ink:'#fff',tag:'FOR BRANDS',big:'Placement, not banners',cap:'Lifestyle-first product integration + influencer content moments'},
+        {grad:'linear-gradient(160deg,#1a1a1a,#3a3a3a)',ink:'#FAF8F2',tag:'THE ASSET',big:'Content engine',cap:'Pro capture all weekend + a post-event library for your channels'}
+      ],
+      stats:[['Dec 3–6','Yas Marina, Abu Dhabi'],['120','Guests — deliberately capped'],['Limited','Brand partnerships']],
+      next:'festivals',nextLabel:'Festival Campaigns'
+    },
+    igaming:{
+      num:'★',title:'iGaming.<br><span class="accent">Traffic that converts.</span>',
+      lede:"The fastest-moving vertical in the game — and we speak the language. The RAW runs creator-led iGaming campaigns built for one thing: traffic that turns into players. The right talent fronting the offer, audiences that actually convert, and reach across multiple markets — APAC, LATAM, and beyond — with compliance handled market by market.",
+      services:['Creator-led campaigns','Traffic & acquisition','APAC · LATAM · Global','Compliance handled'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#0D0D0D,#1a1a1a)',ink:'#D9A63F',tag:'TRAFFIC',big:'Clicks that deposit',cap:'Acquisition-first creator campaigns'},
+        {grad:'linear-gradient(160deg,#D9A63F,#E9E5D8)',ink:'#0D0D0D',tag:'TALENT',big:'Faces they trust',cap:'Streamers &amp; creators with real pull'},
+        {grad:'linear-gradient(160deg,#1a1a1a,#8A6512)',ink:'#fff',tag:'MARKETS',big:'APAC → LATAM',cap:'Multi-market reach, compliance handled'}
+      ],
+      stats:[['1B+','Streams of reach'],['6+','Markets live'],['100%','Compliance handled']],
+      next:'sports',nextLabel:'Sports & Streaming'
+    },
+    festivals:{
+      num:'001',title:'Festival<br><span class="accent">Campaigns.</span>',
+      lede:"We don't just activate festivals — we build them. We've taken a festival from nothing: built the brand, launched the campaign, and ran influencer marketing, PR, billboards, and activations all the way to tickets on sale. Then we worked hand-in-hand with the promoters — handing over the full asset kit so they could keep running it without support.",
+      services:['Festival Work','Sponsorships','Talent Collaboration'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#8A6512,#D9A63F)',ink:'#fff',tag:'BUILT BY RAW',big:'Built from zero',cap:'Brand → campaign → tickets on sale'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#8A6512)',ink:'#fff',tag:'CONTENT',big:'Chaos &amp; culture',cap:'On-site photo, video &amp; aftermovies — a content bank built to repurpose'},
+        {grad:'linear-gradient(160deg,#8A6512,#8E8778)',ink:'#0D0D0D',tag:'ON-SITE',big:'Festival access',cap:'Main-stage takeovers &amp; festival sponsorships — brand exposure where culture gathers'}
+      ],
+      stats:[['25+','Major international festival activations']],
+      next:'fashion',nextLabel:'Fashion & Merch'
+    },
+    fashion:{
+      num:'002',title:'Fashion &amp;<br><span class="accent">Merch.</span>',
+      lede:"Streetwear doesn't buy ads — it buys belief. We pair labels and artists with the creators, crews, and cities that give a drop its story — then run the sell-out sequence end-to-end: concept, drop strategy, store, and the retarget loop. Worn worldwide, sold out fast.",
+      services:['Talent Collaboration','Bespoke Marketing'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#1a1a1a,#D9A63F)',ink:'#fff',tag:'COLLAB',big:'Worn worldwide',cap:'Global creator seeding program'},
+        {grad:'linear-gradient(160deg,#8A6512,#E9E5D8)',ink:'#0D0D0D',tag:'DROP CULTURE',big:'Sell-out sequence',cap:'Scarcity, timing, and the tease'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#8A6512)',ink:'#fff',tag:'ARTIST LINES',big:'Fan to customer',cap:'Creator merch from concept to checkout'}
+      ],
+      stats:[['6+','Markets activated'],['24h','Fastest sell-out'],['100%','End-to-end delivery']],
+      next:'hospitality',nextLabel:'Hospitality Campaigns'
+    },
+    hospitality:{
+      num:'003',title:'Hospitality<br><span class="accent">Campaigns.</span>',
+      lede:"A restaurant doesn't go viral by accident. We engineer openings, creator dining moments, and the content loop that keeps a venue booked out — turning tables into talkability.",
+      services:['Talent Collaboration','Bespoke Marketing','Sponsorships'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#8E8778,#D9A63F)',ink:'#0D0D0D',tag:'LAUNCH',big:'Opening nights',cap:'Launches the whole city talks about'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#8E8778)',ink:'#FAF8F2',tag:'CREATORS',big:'Taste makers',cap:'Creator dining moments built for the feed'},
+        {grad:'linear-gradient(160deg,#D9A63F,#8A6512)',ink:'#fff',tag:'RESULT',big:'Booked out',cap:'From opening buzz to repeat covers'}
+      ],
+      stats:[['Wk 1','Booked-out openings'],['1M+','Local reach per launch'],['↗','Tables into talkability']],
+      next:'products',nextLabel:'Product Campaigns'
+    },
+    products:{
+      num:'004',title:'Product<br><span class="accent">Campaigns.</span>',
+      lede:"We take products off the shelf and into the conversation. The playbook: a provocative creative idea, the right creators to carry it, and out-of-home moments people photograph and repost.",
+      services:['Talent Collaboration','Sponsorships','Bespoke Marketing'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#8E8778,#8A6512)',ink:'#0D0D0D',tag:'CAMPAIGN',big:'Honey that stings',cap:'Sting Honey — OOH + creator launch'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#3a3a3a)',ink:'#FAF8F2',tag:'PRODUCT DROP',big:'Sweet by nature',cap:'Limited drop with 40+ creators'},
+        {grad:'linear-gradient(160deg,#D9A63F,#8A6512)',ink:'#fff',tag:'AMPLIFICATION',big:'This might sting',cap:'12M organic impressions in week one'}
+      ],
+      stats:[['40+','Creators activated'],['12M','Organic impressions'],['3x','Sales lift at launch']],
+      next:'sports',nextLabel:'Sports & Streaming'
+    },
+    sports:{
+      num:'005',title:'Sports &amp;<br><span class="accent">Streaming.</span>',
+      lede:"Athletes are the most trusted voices in culture — and IRL streaming is where they live now. Think Speed on the ground: live, unscripted, everywhere at once. We structure the endorsements and build the streaming moments that convert.",
+      services:['Sponsorships & Endorsements','Talent Collaboration','iGaming'],
+      tiles:[
+        {grad:'linear-gradient(160deg,#2E2B26,#E9E5D8)',ink:'#0D0D0D',tag:'ENDORSEMENT',big:'Built to move',cap:'Footwear launch with pro athletes'},
+        {grad:'linear-gradient(160deg,#0D0D0D,#2E2B26)',ink:'#FAF8F2',tag:'IRL STREAMING',big:'Live &amp; unscripted',cap:'On-the-ground streams, everywhere online'},
+        {grad:'linear-gradient(160deg,#E9E5D8,#D9A63F)',ink:'#0D0D0D',tag:'COMMUNITY',big:'Street energy',cap:'Run clubs + grassroots activations'}
+      ],
+      stats:[['100+','Brands worked with'],['1,000+','Influencers activated'],['18+','Stream platforms live']],
+      next:'festivals',nextLabel:'Festival Campaigns'
+    }
+  };
+  function openShowcase(key){
+    const d=industries[key];
+    document.getElementById('sc-body').innerHTML=`
+      <div class="kicker">Industry ${d.num}</div>
+      <h2>${d.title}</h2>
+      <div class="sc-lede">
+        <p>${d.lede}</p>
+        <div class="sc-chips">${d.services.map(s=>`<span>${s}</span>`).join('')}</div>
+      </div>
+      <div class="sc-gallery">${d.tiles.map((t,i)=>`
+        <div class="sc-tile" style="background:${t.img?`linear-gradient(180deg,rgba(13,13,13,.2),rgba(13,13,13,.72)),url('${t.img}') center/cover`:t.grad};color:${t.img?'#fff':t.ink}">
+          <span class="mono">${d.num}.${i+1} — ${t.tag}</span>
+          <div><div class="big">${t.big}</div><div class="cap">${t.cap}</div></div>
+        </div>`).join('')}
+      </div>
+      <div class="sc-stats proof-stats proof-stats-dark">${d.stats.map(s=>`
+        <div class="g-stat proof-stat"><div class="display proof-stat-number">${s[0]}</div><p class="proof-stat-label">${s[1]}</p></div>`).join('')}
+      </div>
+      <div class="sc-nav">
+        <a class="raw-btn raw-btn-primary" href="#contact" onclick="closeShowcase()">Start a project like this</a>
+        <a class="raw-btn raw-btn-secondary" href="javascript:openShowcase('${d.next}')">Next: ${d.nextLabel} →</a>
+      </div>`;
+    const sc=document.getElementById('showcase');
+    sc.classList.add('open');sc.scrollTop=0;
+    document.body.style.overflow='hidden';
+  }
+  function closeShowcase(){
+    document.getElementById('showcase').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeShowcase()});
+  // Animated count-up for global stats
+  const fmt=(v,compact)=>compact?new Intl.NumberFormat('en',{notation:'compact',maximumFractionDigits:1}).format(v):Math.round(v).toString();
+  const statsObs=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting)return;
+      statsObs.unobserve(en.target);
+      en.target.querySelectorAll('.cnt').forEach(el=>{
+        const end=+el.dataset.end,compact=!!el.dataset.compact,t0=performance.now(),dur=1600;
+        const tick=t=>{
+          const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);
+          el.textContent=fmt(end*e,compact);
+          if(p<1)requestAnimationFrame(tick);else el.textContent=fmt(end,compact);
+        };
+        requestAnimationFrame(tick);
+      });
+    });
+  },{threshold:.4});
+  const gs=document.getElementById('global-stats');if(gs)statsObs.observe(gs);
+  function setAudience(a){
+    document.getElementById('tb-brand').classList.toggle('active',a==='brand');
+    document.getElementById('tb-talent').classList.toggle('active',a==='talent');
+    const brand=a==='brand';
+    document.getElementById('f-budget').style.display=brand?'block':'none';
+    document.getElementById('f-links').style.display=brand?'none':'block';
+    document.getElementById('f-email').placeholder=brand?'you@brand.com':'you@email.com';
+    document.getElementById('f-msg').placeholder=brand?"Tell us what you're building":"Tell us who you are and where you want to go";
+    const svc=document.getElementById('f-svc');
+    svc.innerHTML=brand
+      ?'<option>Sponsorships &amp; Endorsements</option><option>Talent Collaboration</option><option>iGaming</option><option>Festival Work</option><option>Bespoke Marketing</option>'
+      :'<option>Brand deals &amp; endorsements</option><option>Campaign collaborations</option><option>Festival &amp; event bookings</option><option>Representation / management</option>';
+  }
+</script>
+<script>
+(function(){
+  // ---------- Globe journey (hero) ----------
+  const canvas=document.getElementById('globeCanvas');
+  const rootEl=document.getElementById('heroJourney');
+  if(!canvas||!rootEl)return;
+  const hintEl=document.getElementById('hjHint');
+  const capEls=[0,1,2,3,4,5].map(i=>document.getElementById('hjCap'+i));
+  const CREAM='#141414',RED='#D9A63F'; // ink dots on cream (poster theme)
+
+  // Stops: on-the-ground markets (lon,lat)
+  const stops=[
+    {lon:174.8,lat:-41.3},  // New Zealand
+    {lon:133.8,lat:-25.3},  // Australia
+    {lon:106.8,lat:-6.2},   // Indonesia
+    {lon:54.4,lat:24.5},    // UAE
+    {lon:-98.6,lat:39.8},   // USA
+    {lon:-99.1,lat:19.4}    // LATAM (Mexico City)
+  ];
+  // Camera keyframes: rotY=-lon faces the stop; monotonic = seamless westward flight
+  const cam=[
+    {p:0.00,rotY:-215,tilt:-30,zoom:0.95},
+    {p:0.08,rotY:-174.8,tilt:-41.3,zoom:1.28},{p:0.155,rotY:-174.8,tilt:-41.3,zoom:1.32},
+    {p:0.22,rotY:-133.8,tilt:-25.3,zoom:1.28},{p:0.295,rotY:-133.8,tilt:-25.3,zoom:1.32},
+    {p:0.36,rotY:-106.8,tilt:-6.2,zoom:1.28},{p:0.435,rotY:-106.8,tilt:-6.2,zoom:1.32},
+    {p:0.50,rotY:-54.4,tilt:24.5,zoom:1.28},{p:0.575,rotY:-54.4,tilt:24.5,zoom:1.32},
+    {p:0.64,rotY:98.6,tilt:39.8,zoom:1.28},{p:0.715,rotY:98.6,tilt:39.8,zoom:1.32},
+    {p:0.78,rotY:99.1,tilt:19.4,zoom:1.28},{p:0.845,rotY:99.1,tilt:19.4,zoom:1.30},
+    {p:1.00,rotY:150,tilt:-12,zoom:0.58}
+  ];
+  const capWin=[
+    [0.070,0.095,0.150,0.195],
+    [0.210,0.235,0.290,0.335],
+    [0.350,0.375,0.430,0.475],
+    [0.490,0.515,0.570,0.615],
+    [0.630,0.655,0.710,0.755],
+    [0.770,0.795,0.845,0.885]
+  ];
+
+  // ---------- stylized continent dot field ----------
+  const polys=[
+    [[-168,66],[-150,62],[-130,56],[-125,48],[-122,38],[-117,32],[-105,22],[-97,26],[-90,29],[-81,25],[-80,32],[-75,36],[-70,43],[-60,47],[-55,52],[-65,60],[-80,64],[-95,70],[-120,70],[-140,70],[-168,66]],
+    [[-105,22],[-97,26],[-90,29],[-83,10],[-79,8],[-92,14],[-105,22]],
+    [[-79,9],[-72,11],[-60,9],[-50,3],[-44,-3],[-35,-8],[-39,-15],[-40,-23],[-48,-28],[-57,-38],[-65,-47],[-71,-54],[-73,-44],[-73,-33],[-70,-18],[-77,-6],[-79,9]],
+    [[-52,61],[-42,62],[-25,70],[-20,76],[-30,83],[-55,83],[-68,78],[-60,68],[-52,61]],
+    [[-9,37],[-2,43],[3,43],[10,44],[16,41],[23,38],[28,41],[40,44],[50,50],[60,55],[60,68],[45,68],[30,71],[20,70],[10,63],[5,58],[-2,50],[-9,44],[-9,37]],
+    [[-17,14],[-10,25],[-5,32],[3,37],[10,37],[20,32],[32,31],[35,27],[43,12],[51,12],[48,2],[40,-11],[36,-19],[32,-29],[24,-34],[18,-33],[14,-22],[9,-1],[-8,5],[-17,14]],
+    [[40,44],[52,42],[60,40],[70,38],[75,35],[68,24],[72,20],[78,8],[80,15],[88,22],[92,20],[98,10],[103,2],[105,12],[109,18],[115,23],[122,30],[122,38],[130,42],[136,45],[142,50],[150,60],[160,62],[170,66],[178,68],[178,72],[140,76],[110,78],[80,74],[68,70],[60,68],[60,55],[50,50],[40,44]],
+    [[95,5],[103,1],[110,-2],[118,-4],[125,-2],[132,-4],[140,-6],[147,-8],[142,-10],[130,-8],[118,-9],[108,-7],[100,-2],[95,5]],
+    [[130,32],[134,34],[138,36],[141,40],[143,44],[140,42],[136,36],[131,33],[130,32]],
+    [[114,-22],[122,-14],[131,-12],[137,-12],[142,-11],[147,-19],[151,-24],[153,-30],[150,-36],[144,-38],[136,-35],[129,-32],[122,-34],[115,-34],[113,-26],[114,-22]],
+    [[172,-35],[176,-38],[174,-42],[169,-46],[167,-45],[171,-40],[172,-35]],
+    [[-10,52],[-6,55],[-4,58],[-1,55],[0,52],[-4,50],[-10,52]]
+  ];
+  const inPoly=(lon,lat,poly)=>{let inside=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const xi=poly[i][0],yi=poly[i][1],xj=poly[j][0],yj=poly[j][1];if(((yi>lat)!==(yj>lat))&&(lon<(xj-xi)*(lat-yi)/(yj-yi)+xi))inside=!inside;}return inside;};
+  const isLand=(lon,lat)=>polys.some(p=>inPoly(lon,lat,p));
+  const landDots=[];
+  {const N=9000,GA=Math.PI*(3-Math.sqrt(5));
+   for(let i=0;i<N;i++){const y=1-(2*i+1)/N;const lat=Math.asin(y)*180/Math.PI;let lon=((i*GA*180/Math.PI)%360);if(lon>180)lon-=360;
+     if(isLand(lon,lat))landDots.push({lat:lat*Math.PI/180,lon:lon*Math.PI/180});}}
+
+  const smooth=v=>v*v*(3-2*v);
+  const clamp01=v=>Math.min(1,Math.max(0,v));
+  const easeOut=v=>1-Math.pow(1-v,3);
+  function camera(p){
+    let a=cam[0],b=cam[cam.length-1];
+    for(let i=0;i<cam.length-1;i++){if(p>=cam[i].p&&p<=cam[i+1].p){a=cam[i];b=cam[i+1];break;}}
+    const t=smooth(clamp01((p-a.p)/Math.max(1e-6,b.p-a.p)));
+    const L=(x,y)=>x+(y-x)*t;
+    return{rotY:L(a.rotY,b.rotY)*Math.PI/180,tilt:L(a.tilt,b.tilt)*Math.PI/180,zoom:L(a.zoom,b.zoom)};
+  }
+  const t0=performance.now();
+  function frame(){
+    const vh=window.innerHeight;
+    const rect=rootEl.getBoundingClientRect();
+    const p=clamp01(-rect.top/Math.max(1,rect.height-vh));
+    if(hintEl)hintEl.style.opacity=String(clamp01(1-p*14));
+    const capAlphas=[];
+    for(let i=0;i<capWin.length;i++){
+      const[s,f1,f2,e]=capWin[i];let a=0;
+      if(p>s&&p<e){a=p<f1?(p-s)/(f1-s):p>f2?1-(p-f2)/(e-f2):1;}
+      a=clamp01(a);capAlphas.push(a);
+      const el=capEls[i];
+      if(el){el.style.opacity=String(a);el.style.transform='translateY('+((1-easeOut(a))*24).toFixed(1)+'px)';}
+    }
+    draw(p,capAlphas);
+    requestAnimationFrame(frame);
+  }
+  function draw(p,capAlphas){
+    const dpr=Math.min(2,window.devicePixelRatio||1);
+    const w=canvas.clientWidth,h=canvas.clientHeight;
+    if(!w||!h)return;
+    if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
+    const ctx=canvas.getContext('2d');
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,w,h);
+    const c=camera(p);
+    const recede=clamp01((p-0.84)/0.14);
+    const t=(performance.now()-t0)/1000;
+    const idle=clamp01(1-p*12)*t*0.06;
+    const rotY=c.rotY+idle,tilt=c.tilt;
+    const cx=w/2,cy=h*0.52,R=Math.min(w,h)*0.40*c.zoom;
+    const GA2=1-0.86*recede;
+    const sinT=Math.sin(tilt),cosT=Math.cos(tilt);
+    const project=(lat,lon)=>{const cl=Math.cos(lat);const x=cl*Math.sin(lon+rotY);const y=Math.sin(lat);const z=cl*Math.cos(lon+rotY);const y2=y*cosT-z*sinT;const z2=y*sinT+z*cosT;return{x:cx+x*R,y:cy-y2*R,z:z2};};
+    ctx.globalAlpha=GA2*0.4;ctx.strokeStyle=CREAM;ctx.lineWidth=1;
+    ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();
+    const drawArc=pts=>{ctx.beginPath();let st=false;for(const pt of pts){if(pt.z<=0.02){st=false;continue;}if(!st){ctx.moveTo(pt.x,pt.y);st=true;}else ctx.lineTo(pt.x,pt.y);}ctx.stroke();};
+    ctx.globalAlpha=GA2*0.08;
+    for(let m=0;m<6;m++){const lon=(m/6)*Math.PI;const a1=[],a2=[];for(let a=-Math.PI/2;a<=Math.PI/2+0.001;a+=Math.PI/48){a1.push(project(a,lon));a2.push(project(a,lon+Math.PI));}drawArc(a1);drawArc(a2);}
+    for(let q=-2;q<=2;q++){const lat=q*Math.PI/6;const pts=[];for(let a=0;a<=Math.PI*2+0.001;a+=Math.PI/48)pts.push(project(lat,a));ctx.globalAlpha=GA2*(q===0?0.15:0.08);drawArc(pts);}
+    ctx.fillStyle=CREAM;
+    for(const d of landDots){const pt=project(d.lat,d.lon);if(pt.z<=0.02)continue;ctx.globalAlpha=GA2*(0.2+0.6*pt.z);const r=(0.9+1.15*pt.z)*Math.max(0.8,R/420);ctx.beginPath();ctx.arc(pt.x,pt.y,r,0,Math.PI*2);ctx.fill();}
+    for(let i=0;i<stops.length;i++){
+      const s=stops[i];const pt=project(s.lat*Math.PI/180,s.lon*Math.PI/180);
+      if(pt.z<=0.05)continue;
+      const a=capAlphas[i];
+      ctx.globalAlpha=GA2*(0.25+0.5*pt.z)*0.9;ctx.fillStyle=RED;
+      ctx.beginPath();ctx.arc(pt.x,pt.y,3,0,Math.PI*2);ctx.fill();
+      if(a>0.01){const pulse=1+0.18*Math.sin(t*3.2);
+        ctx.strokeStyle=RED;ctx.lineWidth=1.5;
+        ctx.globalAlpha=GA2*a*0.9;ctx.beginPath();ctx.arc(pt.x,pt.y,12*pulse,0,Math.PI*2);ctx.stroke();
+        ctx.globalAlpha=GA2*a*0.5;ctx.beginPath();ctx.arc(pt.x,pt.y,22*pulse,0,Math.PI*2);ctx.stroke();}
+    }
+    ctx.globalAlpha=1;
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>

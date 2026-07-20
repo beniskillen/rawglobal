@@ -1,5 +1,13 @@
-/ /Pages/index.html 200!
-/index.html /Pages/index.html 200!
+/ /index.html 200!
+/pages /Pages/index.html 200!
+/pages/ /Pages/index.html 200!
+/pages/index.html /Pages/index.html 200!
+/pages/work.html /Pages/work.html 200!
+/pages/partnerships.html /Pages/partnerships.html 200!
+/pages/what-we-do.html /Pages/what-we-do.html 200!
+/pages/about.html /Pages/about.html 200!
+/pages/igaming.html /Pages/igaming.html 200!
+/pages/contact.html /Pages/contact.html 200!
 /work /Pages/work.html 200!
 /work.html /Pages/work.html 200!
 /partnerships /Pages/partnerships.html 200!

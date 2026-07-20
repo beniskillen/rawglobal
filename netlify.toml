@@ -3,13 +3,61 @@
 
 [[redirects]]
   from = "/"
+  to = "/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages"
   to = "/Pages/index.html"
   status = 200
   force = true
 
 [[redirects]]
-  from = "/index.html"
+  from = "/pages/"
   to = "/Pages/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/index.html"
+  to = "/Pages/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/work.html"
+  to = "/Pages/work.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/partnerships.html"
+  to = "/Pages/partnerships.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/what-we-do.html"
+  to = "/Pages/what-we-do.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/about.html"
+  to = "/Pages/about.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/igaming.html"
+  to = "/Pages/igaming.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/pages/contact.html"
+  to = "/Pages/contact.html"
   status = 200
   force = true
 
